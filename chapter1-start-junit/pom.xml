@@ -14,4 +14,30 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+<!--    명령 프롬프트에서 테스트를 실행하기 위해 Maven Surefire 플러그인과 관련 구성 추가-->
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+            </plugin>
+        </plugins>
+    </build>
+
+<!--    junit-->
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
 </project>
