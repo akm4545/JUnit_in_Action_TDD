@@ -76,3 +76,33 @@ Run -> Edit Configurations -> Tags (JUnit5) 에서 원하는 태그를 특정하
 이는 로컬에서 빠르게 테스트 대상을 변경할 때 적합하다
 
 자동화 도구를 사용할 때는 pom.xml 파일을 기준으로 빌드할 것이기 때문에 pom.xml 파일을 변경하는 것이 권장된다
+
+단언문
+결괏값을 검증하려면 JUnit5의 Assertions 클래스에서 제공하는 단언문 메서드를 사용해야 한다
+Assertions 클래스의 메서드들은 정적으로 가져올 수 있다
+만약 정적으로 가져오는 것이 불편하다면 일반적인 방식으로 JUnit5의 Assertions 클래스를 가져와서 메서드를 호출할 수도 있다
+
+자주 사용하는 단언문 메서드
+assertAll
+오버로딩이 적용되어 있다 안에 있는 executable 객체 중 어느 것도 예외를 던지지 않는다고 단언한다
+이때 excutable은 org.junit.jupiter.api.function.Executable 타입의 객체다
+
+assertArrayEquals
+오버로딩이 적용되어 있다 예상 배열과 실제 배열이 동등하다고 단언한다
+
+assertEquals
+오버로딩이 적용되어 있다 예상 값과 실제 값이 동등하다고 단언한다
+
+assertX(..., String message)
+실패했을 경우 message를 테스트 프레임워크에 전달하는 단언문이다
+
+assetX(..., Supplier <String> messageSupplier)
+실패했을 경우 messageSupplier를 테스트 프레임워크에 전달하는 단언문이다
+실패 메서지는 messageSupplier에서 지연(lazily)전달된다
+
+JUnit5는 오버로딩이 적용되어 있는 단언문 메서드를 폭넓게 지원한다
+JUnit4의 단언문 메서드의 기능을 포함하며 일부 메서드는 자바 8 람다식을 지원한다
+JUnit5는 과거에 Hamcrest(헴크레스트) 매처와 함께 사용했던 assertThat 메서드를 더는 지원하지 않는데
+권장하는 방식은 Hamcrest의 MatcherAssert.assertThat을 오버로딩한 메서드를 사용하는 것이다 
+
+Assertions 패키지 메서드 예제 -> assertions 패키지 참조
