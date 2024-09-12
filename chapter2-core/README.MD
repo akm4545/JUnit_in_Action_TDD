@@ -117,4 +117,18 @@ Assertions 패키지 메서드 예제 -> assertions 패키지 참조 -> AssertTi
 예제의 시스템에 할당된 Job 객체가 없는데 run 메서드를 실행한다면 예외를 던질 것이다
 JUnit4에서 @Test 어노테이션 안에 쓰이는 ExpectedException rule을 대체하는 assertThrows 메서드를 사용한다
 
-Assertions 패키지 메서드 예제 -> assertions 패키지 참조 -> AssertThrowsTest 
+Assertions 패키지 메서드 예제 -> assertions 패키지 참조 -> AssertThrowsTest  
+  
+가정문  
+외부 환경이나 우리가 제어할 수 없는 날짜, 시간대 같은 문제 탓에 테스트가 실패할 수도 있다  
+이럴 때 가정문(assumption)을 사용한다면 부적절한 조건에서 테스트가 실행되는 것을 사전에 막을 수 있다  
+  
+가정문은 테스트를 수행하는 데 필수인 전제 조건이 충족되었는지를 검증하는 문장이다  
+테스트를 계속 진행하는 것이 합리적이지 않을 수 있다고 생각되는 부분에 가정문을 사용할 수 있다  
+테스트 리포트에서 가정문에 의해 중단된 테스트는 실패한 것으로 처리한다  
+  
+JUnit4 에서 지원했던 가정문 메서드가 JUnit5에서 모두 지원되지는 않는다  
+JUnit5는 assumeThat 계열의 메서드를 지원하지 않는다  
+대신 assumingThat 메서드를 제공하며 이 메서드는 가정이 충족된 경우에만 단언문을 실행한다  
+  
+assume 예제 -> assumptions 패키지 참조  
