@@ -22,12 +22,23 @@ public class AssumptionsTest {
             new OperationSystem(System.getProperty("os.name"), System.getProperty("os.arch"))
     );
     private SUT systemUnderTest = new SUT();
+    
+//    assumeTrue
+//    특정 조건이 참일때만 테스트가 실행됨
 
+//    각 테스트가 실행되기 전에 실행
+//    현재 OS 환경이 윈도우라는 가정을 만족하지 않으면 테스트가 실행되지 않는다
     @BeforeEach
     void setUp() {
         assumeTrue(environment.isWindows());
     }
-
+    
+//    assumingThat 
+//    테스트 전제 조건을 설정 
+//    이 메서드는 테스트를 실행하기 전에 특정 조건이 충족되는지를 검사하고 조건이 충족되지 않으면 해당 테스트를 건너뛴다
+    
+//    자바 버전이 1.8인지 검증한다 
+//    자바 버전이 1.8일 때만 시슽메에서 현재 실행 중인 작업이 없음을 검증한다
     @Test
     void testNoJobToRun() {
         assumingThat(
