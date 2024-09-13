@@ -218,5 +218,43 @@ parameterized 패키지 -> ParameterizedWithCsvSourceTest 참조
   
 parameterized 패키지 -> ParameterizedWithCsvFileSourceTest 참조  
   
+# **동적 테스트**  
+JUnit5는 런타임에 테스트를 생성할 수 있는 동적 프로그래밍 모델을 도입했다  
+개발자가 팩토리 메서드를 작성하기만 하면 프레임워크가 런타임에 실행할 테스트를 생성한다  
+팩토리 메서드에는 @TestFactory 어노테이션을 달면 된다  
+  
+@TestFactory 메서드는 일반적인 테스트가 아니라 테스트를 생성하는 팩토리다  
+@TestFactory 어노테이션이 달린 메서드가 반환할 수 있는 대상은 다음과 같다  
+  
+DynamicNode(추상 클래스, DynamicContainer나 DynamicTest가 DynamicNode를 상속하였고 인스턴스화가 가능한 구체 클래스다)  
+DynamicNode 객체의 배열  
+DynamicNode 객체의 스트림  
+DynamicNode 객체의 컬렉션  
+DynamicNode 객체의 Iterable  
+DynamicNode 객체의 반복자(iterator)  
+  
+@TestFactory 어노테이션이 붙은 메서드 역시 가시성을 위한 최소 요구 사항으로 디폴트 접근 제어자를 사용할 수 있지만  
+private이거나 정적일 수는 없다  
+ParameterResolver에 의해 리졸브될 파라미터를 선언할 수는 있다  
+  
+DynamicTest 인터페이스는 디스플레이 네임과 Executable로 이루어져 있고 런타임에 생성되는 테스트다  
+Executable은 자바 8에서 등장한 함수형 인터페이스이므로 동적 테스트는 람다식이나 메서드 참조 방식으로 구현할 수 있다  
+  
+동적 테스트는 @Test 어노테이션이 달린 보통의 테스트와 다른 생애 주기를 가지고 있다  
+@BeforeEach, @AfterEach 어노테이션이 달린 메서드는 @TestFactory 메서드 전체에 대해 실행될 뿐 개별 테스트 각각에 대해서는 실행되지 않는다  
+팩토리 메서드 외에 개별 동적 테스트에 대한 생애 주기 콜백은 없다    
+  
+dynamic 패키지 예제 참조  
+
+<h3><strong>차이점 요약</strong></h3>  
+<table><thead><tr><th>특징</th><th><code>assertAll</code></th><th><code>DynamicTest</code></th></tr></thead><tbody><tr><td><strong>용도</strong></td><td>여러 단언문을 하나의 테스트로 그룹화하여 실행</td><td>런타임에 테스트를 동적으로 생성하여 실행</td></tr><tr><td><strong>실행 방식</strong></td><td>하나의 테스트 안에서 여러 단언문 실행</td><td>각각 독립된 테스트 케이스로 생성 및 실행</td></tr><tr><td><strong>실패 처리</strong></td><td>하나의 단언문 실패 시에도 나머지 단언문을 모두 실행</td><td>하나의 테스트 실패 시 나머지 테스트는 독립적으로 실행</td></tr><tr><td><strong>테스트 구조</strong></td><td>정적으로 작성된 단언문</td><td>실행 시점에 동적으로 테스트 생성 가능</td></tr><tr><td><strong>테스트 케이스 수</strong></td><td>하나의 테스트 내에서 여러 단언문 실행</td><td>각각의 동적 테스트는 별도의 테스트 케이스로 처리됨</td></tr></tbody></table>  
+
+assertAll: 여러 단언문이 같은 컨텍스트에서 실행되어야 할 때 즉 동일한 입력값이나 객체에 대해 여러 단언을 검증하고 싶을 때 유용하다  
+이 경우 하나의 테스트 메서드 내에서 단언문을 모두 처리한다  
+  
+DynamicTest: 테스트할 데이터가 동적이거나 실행 시점에 결정되는 경우 혹은 반복 테스트나 다양한 입력값에 대해   
+독립적인 테스트 케이스가 필요할 때 사용한다  
+각각의 테스트가 별개의 테스트 케이스로 실행되기 때문에 테스트 결과를 개별적으로 보고할 수 있다  
+  
 
 
