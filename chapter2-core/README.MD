@@ -6,7 +6,7 @@
 테스트 클래스는 가시성을 보장하기 위한 최소 요구 사항으로 디폴트 접근 제어자를 사용할 수 있다  
 JUnit4 까지 그랬던 것처럼 더는 테스트 클래스를 public으로만 선언할 필요가 없다  
   
-**# 테스트 메서드**  
+# **테스트 메서드**  
 
 @Test, @RepeatedTest, @ParameterizedTest, @TestFactory, @TestTemplate 어노테이션이 붙은 메서드를 말한다  
   
@@ -175,6 +175,23 @@ dependencyinjection 패키지 예제 -> TestReporterTest 참조
 RepetitionInfoParameterResolver는 @RepeatedTest, @BeforeEach, @AfterEach 어노테이션이 달린 메서드의 파라미터가  
 RepetitionInfo 타입일 때 RepetitionInfo 인스턴스를 리졸브하는 역할한 한다  
 RepetitionInfo는 @RepeatedTest 어노테이션이 달린 테스트에 대한 현재 반복 인덱스와 총 반복 횟수에 대한  
-정보를 가지고 있다
+정보를 가지고 있다  
+  
+# **반복 테스트**  
+JUnit5에서드느 @RepeatedTest 어노테이션을 사용하여 반복 횟수를 지어한 후 해당 횟수만큼 테스트를 반복할 수 있다  
+반복 테스트는 테스트 실행 간에 사전 조건이 변경될 수 있는 환경에서 특히 유용하다  
+예를 들자면 동일한 테스트를 두 번 실행하던 중에 성공 여부를 가를 수 있는 데이터가 변했다고 가정한다면  
+이때 데이터의 예기치 못한 변경은 반드시 수정해야만 하는 버그일 수 있다  
+  
+사용자 정의한 디스플레이 네임을 표현하려면 각 반복마다 @RepeatedTest 어노테이션의 name 속성을 사용하여 나타낼 수 있다  
+@RepeatedTest 어노테이션이 지원하는 플레스르 홀더는 다음과 같다  
+  
+{displayName} : @RepeatedTest 어노테이션이 붙은 메서드의 디스플레이 네임  
+{currentRepetition} : 현재 반복 인덱스  
+{totalRepetitions} : 총 반복 횟수  
+  
+repeated 패키지 예제 참조  
+  
+
 
 
