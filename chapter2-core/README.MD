@@ -255,6 +255,58 @@ assertAll: 여러 단언문이 같은 컨텍스트에서 실행되어야 할 때
 DynamicTest: 테스트할 데이터가 동적이거나 실행 시점에 결정되는 경우 혹은 반복 테스트나 다양한 입력값에 대해   
 독립적인 테스트 케이스가 필요할 때 사용한다  
 각각의 테스트가 별개의 테스트 케이스로 실행되기 때문에 테스트 결과를 개별적으로 보고할 수 있다  
+
+# **Hamcrest 매처**  
+더 많은 단위 테스트와 단언문을 작성하면서 개발자들은 몇몇 단언문이 다루는 내용이 너무 많고 한번에 읽기 어렵다고 느끼게 된다  
   
-
-
+읽기 힘든 단언문 예제  
+hamcrest 패키지 -> HamcrestListTest 예제  
+  
+현재 Hamcrest는 자바, C++, Objective-C, 파이썬, PHP와 같은 언어에 적용 가능하다  
+Hamcrest는 테스트 프레임워크는 아니다 그러나 간명한 매치 규칙을 선언하는 데 도움이 된다  
+매치 규칙은 다양한 상황에 쓰이지만 특히 단위 테스트에 유용하게 쓰일 수 있다  
+  
+Hamcrest 사용한 예제  
+hamcrest 패키지 -> HamcrestListTest 예제  
+  
+JUnit5는 4와는 다르게 assertThat 메서드를 지원하지 않는다  
+assertThat 메서드는 다음과 같이 두세 가지 파라미터를 사용할 수 있다  
+  
+단언문이 실패했을 때 나타나는 오류 메시지(선택 사항)  
+실제 값 또는 실제 객체  
+예상 값에 대한 Matcher 객체  
+  
+Matcher 클래스에서 제공하는 정적 팩토리 메서드  
+anything  
+아무것이나 일치하면 될 때 사용한다 단언문을 더 일긱 쉽게 만들 때 유용하다  
+is  
+문장의 가독성을 높이고 싶을 때 사용한다. 일종의 장식 표현  
+allOf  
+모든 매처 규칙을 만족하는지 확인(&&연산자와 비슷)  
+anyOf  
+하나라도 일치하는 매치 규칙이 있는지 확인(||연산자와 비슷)  
+not  
+매치 규칙의 의미를 뒤집는다(!연산자와 비슷)  
+instanceOf  
+객체가 특정 클래스의 인스턴스인지 확인한다  
+sameInstance  
+객체 동일성(object identity)을 확인한다  
+nullValue, notNullValue  
+null인지 null이 아닌지 확인한다  
+hasProperty  
+객체가 특정 속성을 가졌는지 확인한다  
+hasEntry, hasKey, hasValue  
+맵이 특정 엔트리, 키, 값을 가졌는지 확인한다  
+hasItem, hasItems  
+컬렉션이 특정 요소나 요소들을 가졌는지 확인한다  
+closeTo, GreaterThan, GreaterThanOrEqualTo, lessThan, lessThanOrEqualTo  
+주어진 숫자가 가까운지, 큰지, 크거나 같은지, 작은지, 작거나 같은지를 확인  
+equalToIgnoringCase  
+대소문자를 무시하고 주어진 문자열이 일치하는지 확인  
+eqaulToIgnoringWhiteSpace  
+공백을 무시하고 주어진 문자열이 일치하는지 확인  
+containsString, startWith, endsWith  
+주어진 문자열이 특정 문자열을 포함하는지, 특정 문자열로 시작하는지, 특정 문자열로 끝나는지를 확인한다  
+  
+Hamcrest 메서드 사용 예제
+hamcrest 패키지 -> HamcrestMatchersTest 예제  
