@@ -45,3 +45,34 @@ runners 패키지 -> CustomTestRunner 클래스 참조
   
 @RunWith 어노테이션  
 runners 패키지 -> CalculatorTets 클래스 참조  
+  
+# **JUnit4 rule**  
+JUnit4 rule은 테스트 메서드 호출을 가로채는(intercept) 컴포넌트다 JUnit4 rule을 사용해서 테스트 메서드가  
+실행되기 전후에 다른 작업을 수행할 수 있다 rule은 JUnit4 에만 적용된다는 점을 주의해야 한다  
+  
+실행할 테스트에 동작을 추가하려면 TestRule 인터페이스를 구현한 필드에 @Rule 어노테이션을 사용해야 한다  
+JUnit4 rule은 테스트 메서드에서 사용하거나 구성할 수 있는 객체를 만든다는 점에서 테스트를 유연하게 만들 수 있다  
+  
+rules 패키지 -> RuleExceptionTester 참조  
+  
+때로는 테스트 관련 정보를 저장하기 위해 파일이나 폴더를 만드는 등 임시 자원을 가지고 작업해야 한다  
+이때는 TemporaryFolder rule을 사용하면 테스트가 끝난 후 (테스트 통과 여부에 상관없이) 삭제되는 임시 폴더를 만들 수 있다  
+  
+rules 패키지 아래 -> RuleTester 참조  
+  
+사용자 정의 rule을 만들어 테스트를 실행하기 전에 특정 프로세스를 시작하고 테스트가 끝난 다음 중지하거나  
+테스트를 실행하기 전에 데이터베이스에 커넥션을 얻고 테스트가 끝난 다음 커넥션을 반납할 수 있다  
+JUnit4 rule을 작성하려면 TestRule 인터페이스를 구현하는 클래스를 만들어야 한다  
+  
+rules 패키지 아래 -> CustomRule 참조  
+  
+TestRule 인터페이스를 구현하려면 Statement 타입 객체를 반환하는 apply(Statement, Description) 메서드를 재정의 해야 한다  
+Statement 객체는 JUnit 런타임 내의 테스트를 나타내며 evaluate 메서드로 테스트를 실행할 수 있다  
+  
+rules 패키지 아래 -> CustomStatement 참조  
+  
+Description 객체는 현재 테스트를 설명하는데 사용한다 또한 리플렉션으로 테스트에 관한 정보를 읽어낼 수 있다  
+  
+rules 패키지 아래 -> CustomRuleTester 참조  
+  
+
