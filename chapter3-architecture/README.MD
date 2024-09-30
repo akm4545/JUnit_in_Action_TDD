@@ -148,6 +148,14 @@ junit-jupiter-engine: 런타임에서만 사용하는 JUnit Jupiter 테스트 �
 junit-jupiter-params: JUnit Jupiter에서 파라미터를 사용한 테스트를 지원  
 junit-jupiter-migrationsupport: JUnit4에서 JUnit Jupiter로의 전환을 지원하며 JUnit4 rule을 실행하는데 사용  
   
+# **JUnit Vintage**  
+JUnit Vintage는 JUnit Platform에서 JUnit3와 JUnit4 기반 테스트를 실행하기 위한 TestEngine을 제공  
+JUnit Vintage에 포함된 아티팩트는 junit-vintage-engine이 유일하다 junit-vintage-engine은 JUnit3나 JUnit4로  
+작성된 테스트를 실행하기 위한 엔진 구현체를 말한다 물론 JUnit Vintage를 사용하기 위해서는 JUnit3나 JUnit4 jar 파일이 필요하다  
+junit-vintage-engine은 JUnit5를 활용한 테스트와 이전 버전의 테스트를 같이 사용하고자 할 때 매우 유용하다  
+JUnit5를 사용하여 프로젝트를 진행해야 하지만 예전 버전의 테스트를 여전히 유지해야 할 수도 있다  
+이런 상황에서는 JUnit Vintage가 대안이 될 수 있다  
+  
 
 
 
