@@ -156,6 +156,22 @@ junit-vintage-engine은 JUnit5를 활용한 테스트와 이전 버전의 테스
 JUnit5를 사용하여 프로젝트를 진행해야 하지만 예전 버전의 테스트를 여전히 유지해야 할 수도 있다  
 이런 상황에서는 JUnit Vintage가 대안이 될 수 있다  
   
+# **JUnit5 내부 아키텍처 구성도**  
+JUnit Platform은 JUnit3, 4, 5 테스트와 서드 파티 테스트를 비롯하여 다양한 종류의 테스트를 실행할 수 있게 해 준다  
+jar 파일 수준의 세부 정보는 다음과 같다  
+  
+테스트 API는 테스트 엔진을 위한 다양한 기능을 제공하는데 JUnit5 테스트를 위한 junit-jupiter-api, 레거시 테스트를 위한  
+junit-4.12, 서드 파티 테스트를 위한 사용자 정의 API가 있다  
+  
+테스트 엔진은 JUnit Platform의 일부인 junit-platform-engine의 public API를 상속하여 생성한 것이다  
+  
+junit-platform-launcher의 public API는 Maven이나 Gradle 같은 빌드 도구나 IDE가 JUnit Platform 내부의 테스트를 발견할  
+수 있도록 도와준다  
+  
+모듈식 아키텍처 외에도 JUnit5는 extension 메커니즘을 제공한다  
+시스템 아키텍처는 시스템의 기능과 동작을 결정한다 JUnit4 runner와 rule이 동작하는 방식은 JUnit4 아키텍처에 의해 결정되었다  
+JUnit4와 JUnit5의 아키텍처를 이해하고 있으면 기능을 실제로 적용할 때, 테스트를 작성할 때, 다른 구현 방법을 분석할 때 도움이 된다  
+결국 단위 테스트를 빠르게 마스터할 수 있게 된다
 
 
 
