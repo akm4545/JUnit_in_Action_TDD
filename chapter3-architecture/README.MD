@@ -135,5 +135,19 @@ junit-platform-suite-api: JUnit Platform에서 테스트 묶음을 구성하기 
 junit-platform-surefire-provider: Maven Surefire를 사용하여 JUnit Platform에서 테스트를 발견하고 실행할 수 있게 한다  
 junit-platform-gradle-plugin: Gradle을 사용하여 JUnit Platform에서 테스트를 발견하고 실행할 수 있게 한다  
   
-JUnit Jupiter
+# **JUnit Jupiter**  
+JUnit jupiter는 어노테이션, 클래스, 메서드를 비롯하여 JUnit5 테스트를 작성하기 위한 프로그래밍 모델과  
+Extension API를 통해 JUnit5 extension을 작성하기 위한 확장 모델로 이루어져 있다  
+Jupiter의 하위 프로젝트에서는 TestEngine을 통해 JUnit Platform에서 Jupiter 기반 테스트를 실행한다  
+JUnit4 에서는 runner나 rule등 여러 개의 확장 지점이 있었던 반면 JUnit Jupiter의 확장 모델은 하나의 일관된 개념인  
+Extension API로만 구성되었다 Extension 자체는 단순한 마커 인터페이스이다  
+  
+JUnit Jupiter 아티팩트  
+junit-jupiter-api: JUnit5 테스트나 extension 작성을 위한 JUnit Jupiter API
+junit-jupiter-engine: 런타임에서만 사용하는 JUnit Jupiter 테스트 엔진 구현체  
+junit-jupiter-params: JUnit Jupiter에서 파라미터를 사용한 테스트를 지원  
+junit-jupiter-migrationsupport: JUnit4에서 JUnit Jupiter로의 전환을 지원하며 JUnit4 rule을 실행하는데 사용  
+  
+
+
 
