@@ -121,5 +121,19 @@ JUnit Jupiter: JUnit5에서 테스트와 extension을 만들 수 있도록 프�
 JUnit Vintage: JUnit Platform에서 JUnit3이나 JUnit4 기반의 테스트를 실행하기 위한 테스트 엔진으로  
 하위 호환성을 보장한다  
   
-
+# **JUnit Platform**  
+JUnit Platform의 아티팩트  
+junit-platform-commons: JUnit 안에서 사용하기 위한 JUnit의 내부 공통 라이브러리. 외부 사용을 권장하지 않음  
+junit-platform-console: 콘솔에서 JUnit Platform의 테스트를 발견하고 실행할 수 있도록 지원  
+junit-platform-console-standalone: 모든 의존성이 포함되어 있는 실행 가능한 jar 파일. 이 아티팩트는  
+콘솔에서 Junit Platform을 구동할 수 있는 커맨드 라인 자바 애플리케이션인 콘솔 런처에서 사용한다  
+예를 들어 JUnit Vintage나 JUnit Jupiter 테스트를 실행하고 테스트 실행 결과를 콘솔에 출력하는 데 사용할 수 있다  
+junit-platform-engine: 테스트 엔진용 public API  
+junit-platform-launcher: 테스트 계획을 구성하고 실행하기 위한 public API로 일반적으로 IDE나 빌드 도구에서 사용  
+junit-platform-runner: JUnit4 환경의 JUnit Platform에서 테스트와 테스트 묶음을 실행하기 위한 runner  
+junit-platform-suite-api: JUnit Platform에서 테스트 묶음을 구성하기 위한 어노테이션을 가지고 있다  
+junit-platform-surefire-provider: Maven Surefire를 사용하여 JUnit Platform에서 테스트를 발견하고 실행할 수 있게 한다  
+junit-platform-gradle-plugin: Gradle을 사용하여 JUnit Platform에서 테스트를 발견하고 실행할 수 있게 한다  
+  
+JUnit Jupiter
 
