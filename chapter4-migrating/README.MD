@@ -91,6 +91,9 @@ JUnit4 카테고리를 대체하는 JUnit5 태그를 사용하기 위해서는 p
   
 pom.xml 참조  
   
+# **Hamcrest 매처 기능 전환하기**  
+hamcrest 하위 패키지 클래스 참조  
+  
 
 
 
