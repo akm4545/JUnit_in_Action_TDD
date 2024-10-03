@@ -26,3 +26,26 @@ JUnit4 rule과 runner를 JUnit5 확장 모델로 바꾸는 작업에는 일반�
 하지만 JUnit4와 JUnit5는 장기간 공존할 수 있으므로 JUnit4 rule과 runner는 코드에 계속 남아 있어도 상관없고 나중에  
 바꾸어도 괜찮다.  
   
+# **JUnit4에서 JUnit5로 전환하는 데 필요한 의존성**  
+JUnit5를 사용한다는 것은 곧 디스플레이 네임을 사용한 중첩 테스트나 동적 테스트를 수행할 수 있다는  
+말과 같다. JUnit5의 기능을 활용해서 테스트를 수행하기 위해서는 먼저 의존성을 교체해야 한다.  
+JUnit4는 모놀리식 아키텍처로 되어 있으므로 Maven 설정 파일을 확인해 보면 한 개의 의존성만을 가지고 있다.  
+  
+JUnit5의 JUnit Vintage는 JUnit4의 의존성을 대체할 수 있다. JUnit5 Vintage를 활용한다면  
+Maven은 JUnit4의 의존성에 추이적으로 접근할 수 있다. JUnit5 Vintage를 적용하는 것이 JUnit4를  
+JUnit5로 전환하는 첫 번째 단계다. JUnit4와 JUnit5 테스트는 전환 과제가 끝날 떄까지 프로젝트 내에서  
+계속 공존할 수 있다.  
+  
+pom.xml 참조  
+  
+다음으로 JUnit4 어노테이션을 JUnit5 Jupiter 어노테이션으로 교체해야 한다.  
+JUnit5를 사용하여 테스트를 작성하기 위해서는 junit-jupiter-api와 junit-jupiter-engine  
+의존성을 추가해야 한다. junit-jupiter-api는 (어노테이션, 클래스, 메서드를 포함하여) JUnit Jupiter로  
+테스트를 작성하기 위한 API를 제공하는 아티팩트다. junit-jupiter-engine은 테스트 엔진을 실행하기 위한  
+JUnit Jupiter의 핵심적인 아티팩트다.
+  
+pom.xml 참조  
+  
+이 외에도 파라미터를 사용한 테스트를 작성하려면 junit-jupiter-params 의존성이 필요할 수 있다.  
+만약 JUnit4에서 JUnit5로 전환하는 작업이 끝났다면 junit-vintage-engine 의존성을 삭제해도 무방하다.  
+  
