@@ -49,3 +49,28 @@ pom.xml 참조
 이 외에도 파라미터를 사용한 테스트를 작성하려면 junit-jupiter-params 의존성이 필요할 수 있다.  
 만약 JUnit4에서 JUnit5로 전환하는 작업이 끝났다면 junit-vintage-engine 의존성을 삭제해도 무방하다.  
   
+# **JUnit4와 JUnit5에서 비슷하게 사용하는 어노테이션, 클래스, 메서드**  
+어노테이션  
+JUnit4 -> JUnit5  
+@BeforeClass, @AfterClass -> @BeforeAll, @AfterAll  
+@Before, @After -> @BeforeEach, @AfterEach  
+@Ignore -> @Disabled  
+@Category -> @Tag  
+  
+단언문  
+JUnit4 -> JUnit5  
+Assert 클래스를 사용한다. -> Assertions 클래스를 사용한다.  
+단언문 메세지는 첫 번째 파라미터에 적는다. -> 단언문 메세지는 마지막 파라미터에 적는다.  
+assertThat 메서드를 사용할 수 있다. -> assertThat 메서드를 지원하지 않는다. assertAll과 assertThrows 메서드가 추가되었다.  
+  
+가정문  
+JUnit4 -> JUnit5  
+Assume 클래스를 사용한다. -> Assumptions 클래스를 사용한다.  
+assumeNotNull, assumeNoException 메서드를 사용할 수 있다. -> assumeNotNull, assumeNoException 메서드를 사용할 수 없다.  
+  
+JUnit4와 JUnit5의 생애주기 메서드 전환  
+  
+lifecycle 패키지 아래 -> 클래스들 참조  
+  
+
+
