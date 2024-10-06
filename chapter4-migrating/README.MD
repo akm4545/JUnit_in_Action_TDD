@@ -105,4 +105,28 @@ rules 패키지 -> JUnit5RuleExceptionTester 클래스 참조
 rules 패키지 -> JUnit4RuleTester 클래스 참조  
 rules 패키지 -> JUnit5TempDirTester 클래스 참조  
   
+# **사용자 정의 rule을 extension으로 전환하기**  
+사용자 정의 rule은 테스트 실행 전후로 비슷한 작업이 필요한 경우에 유용하다.  
+JUnit4에서는 Statement 객체를 반환하는 apply(Statement, Description) 메서드를 재정의해야 했는데  
+Statement 객체는 JUnit 런타임 내의 테스트를 나타내며 evaluate 메서드로 테스트를 실행할 수 있다.  
+Description 객체는 테스트를 설명하는 역할을 하는데 리플렉션을 활용해 테스트에 대한 정보를 읽을 수 있다.  
+  
+rules 패키지 -> CustomRule 클래스 참조  
+  
+JUnit5 에서는 사용자 정의 extension으로 테스트 클래스와 테스트 메서드의 동작을 확장하고 개발자들이  
+JUnit4 rule과 유사한 효과를 누릴 수 있도록 했다. JUnit5의 사용자 정의 extension을 사용하게 되면 코드가 짧아지고  
+어노테이션을 사용할 수 있어 소스 코드가 선언적이게 된다.  
+  
+extensions 패키지 참조  
+  
+JUnit4 rule을 적용하려면 세 가지 클래스가 필요했다. 반면 JUnit5 extension을 적용하면 두 가지 클래스만 사용하면 된다.  
+각 테스트 메서드 전후에 실행될 코드가 명확한 이름을 가진 전용 메서드로 분리되었다.  
+JUnit5 extension을 사용하기 위해 테스트 클래스에 @ExtendWith만 추가하면 된다.  
+  
+JUnit5 extension을 사용하여 JUnit4의 runner를 점차적으로 대체할 수도 있다.  
+이미 만들어진 extension을 사용하면 전환 과정이 더 쉬워질 수도 있다.  
+
+  
+
+  
 
