@@ -94,6 +94,15 @@ pom.xml 참조
 # **Hamcrest 매처 기능 전환하기**  
 hamcrest 하위 패키지 클래스 참조  
   
-
-
+# **JUnit4 rule과 JUnit5의 확장 모델**  
+JUnit4 rule은 메서드가 실행될 때 호출을 가로채고 메서드 실행 전후에 추가 작업을 수행할 수 있는 JUnit4 컴포넌트다.  
+  
+예외 테스트 예제  
+rules 패키지 -> JUnit4RuleExceptionTester 클래스 참조  
+rules 패키지 -> JUnit5RuleExceptionTester 클래스 참조  
+  
+임시 자원 관리 예제  
+rules 패키지 -> JUnit4RuleTester 클래스 참조  
+rules 패키지 -> JUnit5TempDirTester 클래스 참조  
+  
 
