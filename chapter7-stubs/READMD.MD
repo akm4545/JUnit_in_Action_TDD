@@ -103,3 +103,10 @@ Jetty를 사용하면 앞에서 언급한 단점을 일부 보완할 수 있다.
 Jetty 구동 방법  
 JettySample 참조  
   
+# **스텁으로 웹 서버 리소스 만들기**  
+# **첫 번째 스텁 설정하기**  
+WebClient 클래스가 잘 작동하지는 확인하고 싶다면 사전에 Jetty 서버를 구동해야 한다.  
+  
+WebClient 클래스가 유효한 경로로 작동하는지 검증하기 위한 테스트 스켈레톤  
+TestWebClientSkeleton 클래스 참조  
+  
