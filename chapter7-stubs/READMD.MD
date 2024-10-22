@@ -110,3 +110,5 @@ WebClient 클래스가 잘 작동하지는 확인하고 싶다면 사전에 Jett
 WebClient 클래스가 유효한 경로로 작동하는지 검증하기 위한 테스트 스켈레톤  
 TestWebClientSkeleton 클래스 참조  
   
+# **사용자 정의 핸들러를 사용하도록 Jetty 구성하기**  
+TestWebClient 클래스 참조  
