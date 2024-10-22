@@ -137,3 +137,6 @@ HttpURLConnection 클래스를 통해 코드 외부에 있는 HTTP 연결 부분
 HttpUrlConnection 클래스에 대한 모든 호출을 스텁으로 만든 클래스로 리다이렉트할 수 있으며 이 클래스는  
 테스트에 필요한 모든 것을 반환하게 만들 수 있다.  
   
+# **사용자 정의 URL 프로토콜 핸들러 생성하기**  
+TestWebClient1 클래스 참조  
+  
