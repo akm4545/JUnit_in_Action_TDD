@@ -140,3 +140,7 @@ HttpUrlConnection 클래스에 대한 모든 호출을 스텁으로 만든 클�
 # **사용자 정의 URL 프로토콜 핸들러 생성하기**  
 TestWebClient1 클래스 참조  
   
+# **HttpURLConnection 스텁 생성하기**  
+테스트에서 원하는 값을 반환하기 위해 HttpURLConnection 클래스의 스텁을 구현한다.  
+StubHttpURLConnection 클래스 참조  
+  
