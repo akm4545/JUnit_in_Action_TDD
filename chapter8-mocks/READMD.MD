@@ -144,3 +144,9 @@ account 패키지 -> TestDefaultAccountManager 클래스 참조
 테스트 대상  
 web 패키지 -> WebClient 클래스 참조  
   
+# **첫 번째 시도: 쉬운 리팩토링 기법**  
+사용할 리팩토링 기법은 웹 서버에 대한 실제 HTTP 연결과 독립적으로 getContent 메서드를 테스트하는 것이다.  
+url.openConnection 메서드가 모의 HttpURLConnection 객체를 반환하도록 URL 객체를 모의하는 것이다.  
+MockHttpURLConnection 클래스는 테스트에서 getInputStream 메서드로 반환할 내용을 가질 수 있도록 구현한다.  
+  
+web 패키지 -> TestWebClientMockFail 클래스 참조  
