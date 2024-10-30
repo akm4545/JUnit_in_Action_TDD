@@ -174,3 +174,19 @@ web 패키지 -> TestWebClientMock 클래스 참조
 하지만 같지는 않은 무엇인가를 테스트하는 정도에서 끝나 버린다. 코드를 변경할 수 없는 서드 파티 라이브러리에 대한 테스트를 작성하려는  
 게 아니다. 테스트 대상 코드를 완벽하게 제어하며, 코드를 개선하고, 더 테스트 친화적이게 만들려는 것이다.  
   
+# **두 번째 시도: 클래스 팩토리를 사용한 리팩토링**  
+제어의 역전 패턴에 따르면 필요한 리소스는 getContent 메서드 또는 WebClient 클래스로 전달되어야 한다.  
+그리고 앞으로 사용할 유일한 리소스는 HttpURLConnection 객체다. 그려면 WebClient.getContent 시그니처를  
+다음과 같이 변경할 수 있다.  
+  
+public String getContent(URL url, HttpURLConnection connection)  
+  
+이렇게 파라미터로 HttpURLConnection 객체를 받는다는 것은 HttpURLConnection 객체 생성을 WebClient를  
+호출한 쪽에 위임한다는 것을 의미한다. 그런데 HttpURLConnection 객체는 URL 클래스에서 가져와야 하므로  
+시그니처가 썩 좋아 보이지는 않는다.  
+  
+클래스 팩토리 리팩토링 기법을 사용하여 ConnectionFactory 인터페이스를 만들고 이를 구현한 클래스의 역할은  
+(HTTP, TCP/IP 등) 연결의 종류가 무엇이든 적절한 InputStream 객체를 반환하는 것이다.  
+  
+web 패키지 -> ConnectionFactory 인터페이스, WebClient2클래스 참조  
+
