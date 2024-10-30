@@ -10,7 +10,7 @@ public class TestWebClientMockFail {
 
     @Test
     public void testGetContentOk() throws Exception {
-//        모의 객체 생성 후 반환할 스트림 객체 서렂ㅇ
+//        모의 객체 생성 후 반환할 스트림 객체 설정
         MockHttpURLConnection mockConnection = new MockHttpURLConnection();
         mockConnection.setExpectedInputStream(new ByteArrayInputStream("It works".getBytes()));
         
