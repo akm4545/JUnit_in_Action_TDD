@@ -189,4 +189,26 @@ public String getContent(URL url, HttpURLConnection connection)
 (HTTP, TCP/IP 등) 연결의 종류가 무엇이든 적절한 InputStream 객체를 반환하는 것이다.  
   
 web 패키지 -> ConnectionFactory 인터페이스, WebClient2클래스 참조  
+  
+예제에서는 HTTP 연결을 맺는 것과 독립적으로 웹 콘텐츠를 가져오게 바꾸었다. 첫 번째 리팩토링 시도는 HTTP 프로토콜  
+을 사용하는 URL에서만 작동하는 반면 이번 예제 리펙토링은 어떠한 표준 프로토콜(file://, http:// ftp://,  
+jar:// 등) 또는 사용자 정의 프로토콜에서도 잘 작동한다.  
+  
+ConnectionFactory 인터페이스 구현  
+web 패키지 -> HttpURLCOnnectionFactory 클래스 참조  
+  
+구현한 ConnectionFactory 클래스를 이용한 모의 객체 생성  
+web 패키지 -> MockConnectionFactory 클래스 참조  
+  
+모의 객체에는 어떠한 비즈니스 로직도 들어 있지 않으며 외부에서 setData 메서드를 통해 완벽하게 제어할 수 있다.  
+  
+MockConnectionFactory를 사용한 테스트 예제  
+web 패키지 -> TestWebClient 클래스 참조  
+  
+URL이 주어졌을 때 웹 콘텐츠를 반환하는 WebClient.getContent 메서드를 단위 테스트 하면서 메서드를 리펙토링하였고 변화에  
+더 잘 대응할 수 있는 확장 가능한 구현으로 개선하였다.  
+  
+
+  
+
 
