@@ -247,7 +247,13 @@ web 패키지 -> TestWebClientFail1 클래스 참조
 프레임워크를 잘만 사용하면 프로젝트에서 모의 객체를 더 쉽게 만들 수 있다. 가장 널리 사용하는 모의 객체 프레임워크는  
 EasyMock, JMock, Mockito가 있다.  
   
-
+# **EasyMock**  
+EasyMock은 모의 객체를 사용하기 위한 유용한 클래스를 제공하는 오픈 소스 프레임워크다. EasyMock을 사용하려면  
+pom.xml에 의존성을 추가해야 한다.  
   
+EasyMock을 사용하여 TestAccountService 테스트를 재작업  
+account 패키지 -> TestAccountServiceEasyMock 클래스 참조  
+  
+
 
 
