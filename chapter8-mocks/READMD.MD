@@ -254,6 +254,26 @@ pom.xml에 의존성을 추가해야 한다.
 EasyMock을 사용하여 TestAccountService 테스트를 재작업  
 account 패키지 -> TestAccountServiceEasyMock 클래스 참조  
   
+이번에는 WebClient의 getContent 메서드를 재작업한다. 이를 위해 해당 메서드에 대한 모든 의존성을 모의해야 한다. EasyMock  
+은 인터페이스만 모의할 수 있는데 InputStream은 인터페이스가 아니라 클래스다.  
+이를 해결하기 위해 EasyMock의 클래스 확장을 사용한다. EasyMock의 클래스 확장을 사용하여 클래스나 인터페이스에 대한 모의 객체를  
+생성할 수 있다.  
+  
+EasyMock을 활용하여 WebClient 테스트를 재작업  
+web 패키지 -> TesetWebClientEasyMock 클래스 참조  
+  
 
+  
+# **JUnit 모범 사례: EasyMock으로 모의 객체 생성하기**  
+EasyMock의 API를 확인해 보면 createMock 메서드에 다양한 시그니처가 있는 것을 알 수 있다. 보통 다음과 같은 시그니처 사용을  
+추천한다.  
+  
+createMock(String name, Class claz);  
+  
+찾아보면 다음과 같은 스타일도 있다.  
+  
+createMock(Class claz);  
+  
+createMock(Class claz)를 사용하면 오류 메세지에 이름이 나오지 않는다
 
 
