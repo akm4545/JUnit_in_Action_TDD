@@ -264,8 +264,6 @@ web 패키지 -> TesetWebClientEasyMock 클래스 참조
   
 EasyMock을 사용하기는 매우 쉬우므로 프로젝트에 사용하는 것을 충분히 고려할 만하다.  
   
-
-  
 # **JUnit 모범 사례: EasyMock으로 모의 객체 생성하기**  
 EasyMock의 API를 확인해 보면 createMock 메서드에 다양한 시그니처가 있는 것을 알 수 있다. 보통 다음과 같은 시그니처 사용을  
 추천한다.  
@@ -276,6 +274,20 @@ createMock(String name, Class claz);
   
 createMock(Class claz);  
   
-createMock(Class claz)를 사용하면 오류 메세지에 이름이 나오지 않는다
-
+createMock(Class claz)를 사용하면 오류 메세지에 이름이 나오지 않는다.  
+  
+# **JMock**  
+JMock으로 작업하기 위해서는 pom.xml에 의존성을 추가해야 한다.  
+  
+JMock을 사용하여 TestAccountService 테스트를 재작업  
+account 패키지 -> TestAccountServiceJMock 클래스 참조  
+  
+EasyMock은 호출 횟수를 검증하기 위해 verify메서드를 호출해야 했다. JMock을 사용하면 그렇게 할 필요가 없다. JMock 확장이 이 작업을 대신  
+처리하며 만약 메서드를 기대한 만큼 호출하지 않으면 테스트가 실패한다.  
+  
+JMock을 사용하여 TestWebClient 테스트를 재작업  
+web 패키지 -> TestWebClientJMock 클래스 참조  
+  
+JMock은 EasyMock 만큼 사용하기 쉽다. EasyMock과 비교하면 JMock은 JUnit5와 더 잘 통합되어 있다. 프로그래밍 방식으로 context필드를  
+정의할 수도 있다.  
 
