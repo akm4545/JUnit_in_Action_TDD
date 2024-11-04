@@ -290,4 +290,10 @@ web 패키지 -> TestWebClientJMock 클래스 참조
   
 JMock은 EasyMock 만큼 사용하기 쉽다. EasyMock과 비교하면 JMock은 JUnit5와 더 잘 통합되어 있다. 프로그래밍 방식으로 context필드를  
 정의할 수도 있다.  
+  
+# **Mockito**  
+Mockito는 현재 가장 인기 있는 모의 객체 프레임워크다. Mockito를 사용하려면 pom.xml에 의존성을 추가해야 한다.  
+  
+Mockito를 사용하여 TestAccountService 테스트를 재작업  
+account 패키지 -> TestAccountServiceMockito 클래스 참조
 
