@@ -262,6 +262,8 @@ account 패키지 -> TestAccountServiceEasyMock 클래스 참조
 EasyMock을 활용하여 WebClient 테스트를 재작업  
 web 패키지 -> TesetWebClientEasyMock 클래스 참조  
   
+EasyMock을 사용하기는 매우 쉬우므로 프로젝트에 사용하는 것을 충분히 고려할 만하다.  
+  
 
   
 # **JUnit 모범 사례: EasyMock으로 모의 객체 생성하기**  
