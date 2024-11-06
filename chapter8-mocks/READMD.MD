@@ -295,5 +295,13 @@ JMock은 EasyMock 만큼 사용하기 쉽다. EasyMock과 비교하면 JMock은 
 Mockito는 현재 가장 인기 있는 모의 객체 프레임워크다. Mockito를 사용하려면 pom.xml에 의존성을 추가해야 한다.  
   
 Mockito를 사용하여 TestAccountService 테스트를 재작업  
-account 패키지 -> TestAccountServiceMockito 클래스 참조
+account 패키지 -> TestAccountServiceMockito 클래스 참조  
+  
+Mockito를 사용하여 TestWebClient 테스트를 재작업  
+web 패키지 -> TestWebClientMockito 클래스 참조  
+  
+Mockito는 프로그래밍 방식으로 모의 객체를 만든 JMock과 달리 JUnit5 @ExtendWith 어노테이션이나 @Mock 어노테이션을 사용하여 JUnit5 확장  
+모델과 통합해 사용할 수 있다. JUnit5와 통합이 잘되어 있으므로 다른 프레임워크보다 더 많이 쓰인다.  
+  
+
 
