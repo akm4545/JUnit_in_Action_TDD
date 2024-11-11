@@ -157,4 +157,17 @@ IDE 지원이 나쁘다는 점은 컨테이너 프레임워크를 활용한 테�
 이런 목표를 달성하기 위해 컨테이너 테스트 프레임워크는 대부분 Maven이나 Gradle 같은 빌드 도구를 지원하며 일부에서는 컨테이너의 자체 시작을  
 허용하기도 한다. 이는 여러 가지 런타임 아티팩트를 빌드하거나, 테스트를 구동하거나, 리포트를 수집하는 등의 번거로운 일을 줄이는 데 도움이 된다.
   
-
+# **Arquillian으로 테스트하기**  
+Arquillian은 자바로 컨테이너를 활용한 테스트를 실행하기 위해 사용하는 프레임워크다. Arquillian은 크게 세 가지 요소로 구성된다.  
+- JUnit 같은 테스트 runner  
+- WildFly, Tomcat, GlassFish, Jetty 등의 컨테이너  
+- 컨테이너 리소스나 빈을 테스트 클래스에 주입하는 테스트 인리처(test enricher)  
+  
+Arquillian은 JUnit5와 아직 연동이 안 되고 있지만 Arquillian은 Junit4까지 자주 사용되었으며 지금도 인기 있다. Arquillian을 사용하면  
+컨테이너, 배포, 프레임워크 초기화 등을 관리하는 부담이 최소화된다. 한편 Arquillian은 자바 EE 애플리케이션을 테스트하기 위한 프레임워크이므로  
+제어의 역전에 대한 자바 EE 표준인 CDI(contexts and dependency injection, 콘텐스트와 의존성 주입)에 관힌 기본적인 지식이 필요하다.  
+  
+ShrinkWrap(슈링크랩)은 Arquillian에서 사용하는 외부 의존성이며 개발자는 ShrinkWrap을 이용해 간단하게 아카이브를 만들 수 있다. 개발자는  
+ShrinkWrap API를 사용하여 테스트 중에 Arquillian으로 배포할 jar, war, ear 파일을 직접 만들 수 있다. 이러한 파일은 애플리케이션을  
+실행하는 데 필요한 모든 클래스를 포함한다. ShrinkWrap은 테스트 대상인 자바 컨테이너에 업로드할 디스크립터(descriptor)와 디플로이먼트  
+(deployment)를 정의하는 데 도움이 된다.
