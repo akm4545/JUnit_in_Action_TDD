@@ -20,3 +20,12 @@ build.gradle 참조
   
 Gradle의 강점 중 하나인 DSL은 대체로 설명이 필요 없으며 유지 보수가 쉬운 편이다.  
   
+# **Gradle 프로젝트 설정하기**  
+Gradle로 프로젝트를 생성하면 Gradle 래퍼(wrapper)도 같이 생성된다.(줄여서 gradlew라고도 한다) 래퍼는 특정한 버전의 Gradle을  
+호출하는 스크립트를 말한다.(해당 버전이 설치되어 있지 않다면 먼저 다운로드를 수행한다) 래퍼 스크립트는 OS에 따라 gradlew.bat 또는  
+gradlew 파일에 내장되어 있다. 래퍼를 사용하면 프로젝트를 공유할 때 매우 유용하다. 다른 사용자는 래퍼를 통해 프로젝트를 만드는 데  
+사용한 Gradle과 정확히 동일한 버전으로 프로젝트를 빌드할 수 있고 별도로 Gradle을 설치할 필요가 없다.  
+  
+Gradle을 이용해서 테스트 리포트도 작성할 수 있다. gradle test(만약 래퍼를 사용한다면 gradlew test) 명령을 실행하면 build/reports/  
+tests/test 폴더에 테스트 리포트가 생성된다.  
+  
