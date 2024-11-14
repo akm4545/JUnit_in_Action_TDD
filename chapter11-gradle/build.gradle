@@ -1,19 +1,37 @@
 plugins {
+    // 자바 개발을 위한 플러그인
     id 'java'
+
+    // CLI 애플리케이션 개발을 위한 플러그인
+    id 'application'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
-
 repositories {
-    mavenCentral()
+    // 중앙 저장소로 jcenter를 사용
+    // 어떤 저장소든지 등록 가능
+    jcenter()
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    // 애플리케이션에서 사용할 의존성
+    implementation 'com.google.guava:guava:27.1-jre'
+
+    // 테스트에 필요한 JUnit Jupiter API 의존성
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+
+    // 테스트에 필요한 JUnit Jupiter Engine 의존성
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.6.0'
+}
+
+application {
+    // 애플리케이션의 메인 클래스
+    mainClassName = 'com.testeddatasystems.flightsmanagement.Passenger'
 }
 
 test {
-    useJUnitPlatform()
+    // 단위 테스트에 사용하기 위한 JUnit Platform
+    useJUnitPlatform {
+        includeTags 'individual'
+        excludeTags 'repository'
+    }
 }
