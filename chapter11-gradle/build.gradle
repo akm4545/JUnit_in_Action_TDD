@@ -1,8 +1,10 @@
 plugins {
     // 자바 개발을 위한 플러그인
+//    자바 언어를 지원하기 위해 java 플러그인을 적용
     id 'java'
 
     // CLI 애플리케이션 개발을 위한 플러그인
+//    빌드를 지원하기 위해 application 플러그인 적용
     id 'application'
 }
 
