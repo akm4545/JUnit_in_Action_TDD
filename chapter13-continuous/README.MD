@@ -62,8 +62,16 @@ HTTP 응답 시간, 메모리 등을 확인할 수 있는 모니터링 플러그
 
 passenger 예제  
 passengers 패키지 참조(클래스 및 테스트 클래스)  
+
+flights 예제    
+flights 패키지 참조(클래스 및 테스트 클래스)  
   
-flights 패키지,
+Passenger 클래스와 Flight 클래스 간의 통합 테스트 예제  
+flightspassengers 패키지 참조  
+  
+이 프로젝트에서 사용한 코드는 깃으로 관리한다.  
+  
+
   
 
   
