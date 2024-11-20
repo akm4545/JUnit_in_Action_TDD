@@ -41,3 +41,6 @@ extensions 패키지 -> ExecutionContextExtension 클래스 참조
 설정을 변경하면 된다. [Run]-[Edit Configuration]을 클릭하여 junit.jupiter.conditions.deactivate=*을 설정한다. 그러면 테스트 실행과  
 관련한 모든 조건을 비활성화할 수 있다. 이렇게 하면 테스트가 어떤 조건에도 영향을 받지 않으므로 결국 모든 테스트가 실행될 것이다.  
   
+# **확장 지점을 사용하여 JUnit5 테스트 구현하기**  
+개발자는 승객 관련 부분 비즈니스 로직을 구현하고 테스트한다고 가정하자. 물론 승객 정보가 데이터베이스에 영속되는 것까지 확인해야 한다.  
+  
