@@ -19,3 +19,25 @@ point)이라고 하는데 테스트가 생애 주기를 타는 중에 사전에 
 이러한 JUnit5 extension은 주로 프레임워크나 빌드 도구에서 사용한다. 애플리케이션 개발에서도 쓸 수 있지만 프레임워크나 빌드 도구에서  
 쓰는 정도로 많이 쓰진 않는다. JUnit5 extension을 생성하는 것과 사용하는 데에는 일반적인 원칙이 있다.  
   
+# **JUnit5 extension 생성하기**  
+예제로 사용할 항공편 Passenger 클래스, 테스트 클래스 예제  
+Passenger 클래스, PassengerTest 클래스 참조  
+  
+개발자는 콘텍스트에 맞게 테스트를 실행할지 말지 결정하는 로직을 개발한다고 가정하자. 가령 승객 수에 따라 원활("low"), 보통("regular"),  
+혼잡("peak")으로 구분된 세 가지 콘텍스트가 있다. 그리고 원활과 보통 콘텍스트에서만 테스트가 실행되어야 한다고 하자. 혼잡 콘텍스트에서는  
+테스트를 실행하면 안 된다. 시스템이 과부하되도록 만들 필요는 없기 때문이다.  
+  
+개발자의 작업은 혼잡 콘텍스트에는 테스트를 실행하지 않고 원활과 보통 콘텍스트에서만 테스트를 실행하는 JUnit5 extension을 만드는 것이다.  
+그런 다음 개발자는 JUnit5 extension을 사용해서 테스트를 확장한다. 그렇다면 ExecutionCondition 인터페이스를 구현하는 방식으로 테스트를  
+확장할 수 있다.  
+  
+extension 예제  
+extensions 패키지 -> ExecutionContextExtension 클래스 참조  
+  
+이제 PassengerTest에 @ExtendWith 어노테이션을 추가하면 테스트를 확장할 수 있다. 만약 테스트가 빌활성화된다면 콘솔에서 테스트가 실행되지  
+못하는 이유를 확인할 수 있다.  
+  
+참고로 JVM이 테스트 조건부 실행의 효과를 우회하게 만들 수 있다. 조건부 실행 자체를 비활성화하려면 junit.jupiter.conditions.deactivate  
+설정을 변경하면 된다. [Run]-[Edit Configuration]을 클릭하여 junit.jupiter.conditions.deactivate=*을 설정한다. 그러면 테스트 실행과  
+관련한 모든 조건을 비활성화할 수 있다. 이렇게 하면 테스트가 어떤 조건에도 영향을 받지 않으므로 결국 모든 테스트가 실행될 것이다.  
+  
