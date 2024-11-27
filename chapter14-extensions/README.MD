@@ -82,5 +82,11 @@ extensions -> DatabaseOperationsExtension 클래스 참조
 PassengerTest 클래스에 확장을 @ExtendWith 어노테이션에 추가하고 데이터베이스의 기능을 검증하기 위해 새로운 테스트 추가  
 PassengerTest 클래스 참조  
   
-
+테스트를 실행하면 에러가 발생한다.  
+PassengerTest 클래스의 생성자가 PassengerDao 타입의 파라미터를 받지만 해당 파라미터를 리졸브하는 ParameterResolver가 없기 떄문에  
+발생한다. 이 문제를 해결하기 위해서는 ParameterResolver 인터페이스를 구현해야 한다.  
+  
+extensions -> DataAccessObjectParameterResolver 클래스 참조  
+  
+위와 같이 @ExtendWith 어노테이션으로 테스트를 확장하여 사용하면 된다.
 　　
