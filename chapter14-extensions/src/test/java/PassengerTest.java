@@ -1,6 +1,7 @@
 import extensions.DataAccessObjectParameterResolver;
 import extensions.DatabaseOperationsExtension;
 import extensions.ExecutionContextExtension;
+import extensions.LogPassengerExistsExceptionExtension;
 import jdbc.Passenger;
 import jdbc.PassengerDao;
 import jdbc.PassengerExistsException;
@@ -14,7 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 //테스트 확장 어노테이션
 @ExtendWith({ExecutionContextExtension.class,
             DatabaseOperationsExtension.class,
-            DataAccessObjectParameterResolver.class})
+            DataAccessObjectParameterResolver.class,
+            LogPassengerExistsExceptionExtension.class})
 public class PassengerTest {
 
     private PassengerDao passengerDao;
@@ -54,5 +56,14 @@ public class PassengerTest {
         passengerDao.delete(passenger);
 
         assertNull(passengerDao.getById("123-456-789"));
+    }
+
+    @Test
+    void testInsertExistingPassenger() throws PassengerExistsException {
+        Passenger passenger = new Passenger("123-456-789", "John Smith");
+        passengerDao.insert(passenger);
+        passengerDao.insert(passenger);
+
+        assertEquals("John Smith", passengerDao.getById("123-456-789").getName());
     }
 }
