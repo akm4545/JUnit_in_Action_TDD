@@ -105,4 +105,12 @@ extension을 구현하여 예외를 로그로 남길 것이다.
 extensions -> LogPassengerExistsExceptionExtension 클래스 참조  
   
 PassengerTest 클래스에 확장을 추가 등록한다.
+
+# **확장지점**  
+확장 지점 / 구현해야 하는 인터페이스  
+- 조건부 테스트 실행: ExecutionCondition  
+- 생애 주기 콜백: BeforeAllCallback, AfterAllCallback, BeforeEachCallback, AfterEachCallback  
+- 파리미터 리졸브: ParameterResolver  
+- 예외 처리: TestExecutionExceptionHandler  
+- 테스트 인스턴스 후처리: TestInstancePostProcessor
 　　
