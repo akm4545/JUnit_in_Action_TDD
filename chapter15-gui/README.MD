@@ -60,3 +60,5 @@ HtmlUnit 2.50 버전 이후부터는 아래의 브라우저를 지원한다.
   
 WebClient webClient = new WebClient(BrowserVersion.FIREFOX_78);  
   
+# **여러 브라우저 테스트하기**  
+htmlunit 패키지 -> JavadocPageAllBrowserTest 클래스 참조  
