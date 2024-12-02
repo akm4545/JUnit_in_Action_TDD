@@ -31,3 +31,8 @@ Selenium을 사용할 수 있다.
 HtmlUnit은 헤드리스 브라우저를 사용하는 테스트 프레임워크이며 자바로 만들어진 오픈 소스다. HtmlUnit은 사용자가 브라우저 기반 웹 애플리케이션을  
 프로그래밍 방식으로 테스트할 수 있게 해 준다. 그러나 HtmlUnit과 JUnit5를 사용한 테스트는 유저 인터페이스를 시각적으로 보여 주지는 않는다.  
   
+# **HtmlUnit 실전 예제**  
+htmlunit 패키지 -> ManageWebClient 클래스 참조  
+  
+첫 번째 HtmlUnit 예제  
+htmlunit 패키지 -> HtmlUnitPageTest 클래스 참조
