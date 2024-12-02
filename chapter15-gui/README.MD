@@ -46,3 +46,17 @@ HtmlUnit 테스트 작성은 웹 브라우저를 사용하는 사용자의 행�
 단언문은 단위 테스트의 핵심적인 요소다. HtmlUnit은 JUnit5와 연계가 가능하지만 WebAssert라는 비슷한 개념의 클래스를 제공한다. WebAssert  
 클래스에서는 assertTitleEquals, assertTextPresent, notNull 같은 HTML에 관한 표준적인 단언문을 제공한다.  
   
+# **특정한 웹 브라우저 테스트하기**  
+HtmlUnit 2.50 버전 이후부터는 아래의 브라우저를 지원한다.  
+웹 브라우저와 버전 / HtmlUnit BrowserVersion 상수  
+- 엣지(최신 버전) / BrowserVersion.EDGE  
+- 파이어폭스(최신 버전) / BrowserVersion.FIREFOX  
+- 파이어폭스 7.8 / BrowserVersion.FIREFOX_78  
+- 크롬(최신 버전) / BrowserVersion.CHROME  
+- 현 시점 가장 잘 지원되는 브라우저 / BrowserVersion.BEST_SUPPORTED  
+  
+브라우저 버전을 특정하지 않았을 때 WebClient는 디폴트로 BrowserVersion.BEST_SUPPORTED를 에뮬레이션한다. 특정한 버전의 브라우저를  
+에뮬레이션하려면 아래와 같이 사용한다.  
+  
+WebClient webClient = new WebClient(BrowserVersion.FIREFOX_78);  
+  
