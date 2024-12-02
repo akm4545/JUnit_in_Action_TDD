@@ -62,3 +62,17 @@ WebClient webClient = new WebClient(BrowserVersion.FIREFOX_78);
   
 # **여러 브라우저 테스트하기**  
 htmlunit 패키지 -> JavadocPageAllBrowserTest 클래스 참조  
+  
+# **독립 실행형 GUI 테스트 생성하기**  
+외부 페이지는 사전 고지 없이 변경될 수 있으므로 실제로 URL을 입력해서 테스트 하는 방법이 그리 좋지만은 않을 수 있다. 테스트가 웹 사이트에 심히  
+의존적이 되어 웹 사이트를 약간만 바꾸더라도 테스트 결과가 달라질 수 있기 때문이다. 이번에는 테스트 코드에 HTML을 내장해 실행할건데 이 방법을  
+진행하려면 웹 클라이언트에서 모의 HTTP 연결을 사용해야 한다. (모의 HTTP 연결은 htmlunit의 MockWebConnection의 인스턴스를 사용한다) 이렇게  
+하면 JUnit5 테스트에서 어떤 URL 값을 사용하든지 디폴트로 설정한 페이지를 가져올 수 있다. 이번에는 사전 고지 없이 변경될 수 있는 실제 화면의  
+URL을 쓰지 말고 모의 HTTP 연결을 사용하는 웹 클라이언트에서 맺은 HTML 응답의 제목을 테스트 한다.  
+  
+htmlunit 패키지 -> InLineHtmlFixtureTest 클래스 참조  
+  
+만약 여러 페이지로 구성된 애플리케이션을 테스트하고 싶다면 각 페이지에 MockWebConnection.setResponse 메서드를 호출하면 된다.  
+반드시 URL의 맨 끝을 /로 끝내야 한다. 맨 끝에 /를 쓰지 않으면 모의 HTTP 연결은 해당 URL을 찾을 수가 없다. 만약 /를 작성하지 않았다면 예외가  
+발생한다.  
+  
