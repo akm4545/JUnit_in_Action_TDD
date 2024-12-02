@@ -76,3 +76,7 @@ htmlunit 패키지 -> InLineHtmlFixtureTest 클래스 참조
 반드시 URL의 맨 끝을 /로 끝내야 한다. 맨 끝에 /를 쓰지 않으면 모의 HTTP 연결은 해당 URL을 찾을 수가 없다. 만약 /를 작성하지 않았다면 예외가  
 발생한다.  
   
+# **HTML 폼 테스트하기**  
+HtmlPage API는 HTML 폼을 가져오는 데에도 사용할 수 있다. 가령 List<HtmlForm>을 반환하는 getForms 메서드를 사용하여 HTML 폼 리스트를  
+가져올 수 있다. 그리고 getFormByName 메서드를 사용하여 특정 이름을 가진 첫 번째 HtmlForm을 가져올 수도 있다. 오버로딩된 HtmlForm.getInput  
+메서드 중 하나를 호출하여 HTML 입력을 가져올 수 있고 사용자 입력을 setValueAttribute 메서드를 이용해 변경할 수도 있다.  
