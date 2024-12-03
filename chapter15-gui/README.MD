@@ -121,5 +121,23 @@ webClient.setAlertHandler((page, message) -> fail("JavaScript alert: " + message
   
 htmlunit 패키지 -> WindowConfirmTest 클래스 참조  
   
+# **Selenium 살펴보기**  
+Selenium은 웹 애플리케이션을 테스트하기 위한 오픈 소스 프레임워크다. Selenium의 최대 강점은 특정 OS 위에서 실제 브라우저를 자동화하여 테스트를  
+수행할 수 있다는 것이다. 테스트와 동일한 VM에서 브라우저를 에뮬레이션하는 HtmlUnit과는 다른 점이다. 또한 Selenium은 자바와 Junit5는 물론이고  
+여러 프로그래밍 언어를 지원한다.  
+  
+Selenium 웹 드라이버는 테스트를 작성할 때 사용하는 핵심적인 인터페이스다. Selenium 웹 드라이버는 W3C의 권장 사항이며 크롬, 파이어폭스, 엣지를  
+비롯한 여러 최신 브라우저에서 구현한 스펙이다. Selenium 웹 드라이버는 각 브라우저의 기본 자동화 지원을 사용하여 브라우저를 직접 호출한다.  
+브라우저마다 직접 호출하는 방식 및 지원 기능에는 약간씩 차이가 있을 수 있다. 브라우저마다 작업을 수행하는 로직이 다르기 떄문이다.  
+  
+Selenium 웹 드라이버는 다음 네 가지 요소로 구성되어 있다.  
+- Selenium 클라이언트 라이브러리: Selenium은 자바 외에도 PHP, 파이썬, 루비 같은 프로그래밍 언어를 위한 여러 가지 라이브러리를 지원한다.  
+- HTTP에서 사용하는 JSON 와이어 프로토콜: JSON(JavaScript object notation)은 웹 서버와 클라이언트 간 데이터 전송에 사용한다. 웹 드라이버  
+(FirefoxDriver, ChromeDriver, EdgeDriver 등)는 자체적인 HTTP 서버를 가지고 있는데, JSON은 REST API 데이터를 HTTP 서버로 전송하는 데  
+사용하는 와이어 프로토콜을 말한다.  
+- 브라우저 드라이버: 브라우저마다 별도의 브라우저 드라이버가 있다. 브라우저 드라이버는 브라우저 기능의 내부 로직을 드러내지 않고 해당 브라우저와  
+통신한다. 브라우저 드라이버가 요청을 받으면 해당 요청이 브라우저에서 실행되고 응답은 HTTP 형태로 돌려 보낸다.  
+- 브라우저: Selenium은 파이어폭스, 크롬, 엣지, 사파리 같은 여러 브라우저를 지원한다.  
+  
 
 
