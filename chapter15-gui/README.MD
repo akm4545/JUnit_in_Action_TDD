@@ -105,5 +105,21 @@ webClient.setJavaScriptTimeout(timeout);
   
 자바스크립트 경고나 확인을 처리하기 위해 콜백 루틴을 추가할 수 있다.  
   
+# **자바스크립트로 경고 테스트하기**  
+테스트로 어떤 자바스크립트 경고(alert)가 발생했는지 알 수 있다. 하단 테스트에서는 페이지가 로드된 다음 발생한 경고를 수집하고 결과를 확인할 수  
+있는 경고 핸들러를 사용한다. CollectingAlertHandler 객체에 나중에 검사를 할 수 있도록 경고 메시지를 저장해 둔다.  
+
+htmlunit 패키지 -> FormTest 클래스 참조  
+  
+경고 동작을 특정하려면 사용자 정의 경고 핸들러를 구현해야 한다. 가령 경고 핸들러를 다음과 같이 설정하면 자바스크립트 경고가 발생했을 때 테스트가  
+실패한다.  
+  
+webClient.setAlertHandler((page, message) -> fail("JavaScript alert: " + message));  
+  
+이렇게 람다식을 사용하여 자체적으로 경고 핸들러를 구현할 수 있다. 이런 식으로 setConfirmHandler 메서드를 이용하여 경고 외에도 컨펌 핸들러를  
+사용자 정의할 수 있다.  
+  
+htmlunit 패키지 -> WindowConfirmTest 클래스 참조  
+  
 
 
