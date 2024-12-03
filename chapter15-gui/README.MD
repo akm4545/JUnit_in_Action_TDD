@@ -80,3 +80,17 @@ htmlunit 패키지 -> InLineHtmlFixtureTest 클래스 참조
 HtmlPage API는 HTML 폼을 가져오는 데에도 사용할 수 있다. 가령 List<HtmlForm>을 반환하는 getForms 메서드를 사용하여 HTML 폼 리스트를  
 가져올 수 있다. 그리고 getFormByName 메서드를 사용하여 특정 이름을 가진 첫 번째 HtmlForm을 가져올 수도 있다. 오버로딩된 HtmlForm.getInput  
 메서드 중 하나를 호출하여 HTML 입력을 가져올 수 있고 사용자 입력을 setValueAttribute 메서드를 이용해 변경할 수도 있다.  
+  
+예제 html 
+webapp 패키지 -> formtest.html 참조  
+  
+html 폼 테스트  
+htmlunit 패키지 -> FormTest 클래스 참조  
+  
+프레임워크가 어떤 단계에서든 객체를 찾지 못하면 API에서 예외가 발생하고 테스트는 자동으로 실패한다. 그러면 개발자는 테스트에 집중할 수 있으며  
+페이지나 폼이 예상과 다를 경우 프레임워크가 알아서 테스트를 실패시키므로 테스트 결과를 일일이 검증할 필요가 없다.  
+  
+
+
+  
+
