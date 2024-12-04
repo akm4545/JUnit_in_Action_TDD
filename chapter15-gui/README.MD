@@ -160,5 +160,8 @@ selenium 패키지 -> ChromeSeleniumTest 클래스 참조
 파이어폭스 테스트  
 selenium 패키지 -> FirefoxSeleniumTest 클래스 참조  
   
+# **웹 브라우저를 사용한 내비게이션 테스트**  
+웹 페이지에서 특정 요소를 찾아 클릭 (파이어폭스 사용)  
+selenium 패키지 -> WikipediaAccessTest 클래스 참조  
 
 
