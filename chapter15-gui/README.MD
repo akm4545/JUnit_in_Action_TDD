@@ -152,5 +152,13 @@ Selenium은 버전 3부터 아래의 부라우저를 지원한다.
 추가해야 한다. 각 드라이버는 Selenium 다운로드 페이지에서 다운로드 받는 링크 경로를 알 수 있다.  
   
 다운로드 후 환경 변수에 Selenium 드라이버가 있는 폴드를 추가해야 한다.  
+  
+# **특정한 웹 브라우저 테스트하기**  
+크롬 테스트  
+selenium 패키지 -> ChromeSeleniumTest 클래스 참조  
+  
+파이어폭스 테스트  
+selenium 패키지 -> FirefoxSeleniumTest 클래스 참조  
+  
 
 
