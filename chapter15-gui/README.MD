@@ -167,6 +167,9 @@ selenium 패키지 -> WikipediaAccessTest 클래스 참조
 # **여러 브라우저로 테스트하기**  
 selenium 패키지 -> MultiBrowserSeleniumTest 클래스 참조  
   
+# **여러 브라우저로 구글 검색과 내비게이션 테스트하기**  
+selenium 패키지 -> GoogleSearchTest 클래스 참조  
+  
 
 
 
