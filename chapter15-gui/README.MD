@@ -170,6 +170,15 @@ selenium 패키지 -> MultiBrowserSeleniumTest 클래스 참조
 # **여러 브라우저로 구글 검색과 내비게이션 테스트하기**  
 selenium 패키지 -> GoogleSearchTest 클래스 참조  
   
+# **웹 사이트 인증 테스트하기**  
+테스트에는 Heroku라는 웹 사이트를 사용하는데 이곳에서는 HTML 폼 인증을 비롯해 자동으로 테스트할 수 있는 많은 기능을 제공한다.  
+  
+테스트할 웹 사이트의 홈페이즈를 설명하는 클래스  
+selenium 패키지 -> pages 패키지 -> 하위 클래스 참조  
+  
+로그인 테스트  
+selenium 패키지 -> suite 패키지 -> LoginTest 클래스 참조  
+  
 
 
 
