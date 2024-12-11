@@ -85,4 +85,9 @@ cp 패키지 -> SpringAppTest 클래스 참조
 @RunWith와 @ContextConfiguration을 사용하여 테스트에서 스프링 콘텍스트를 자동으로 초기화하였으며 더 짧고 간결하게 테스트를 작성할 수 있다.  
   
 # **JUnit5 Jupiter에 SpringExtension 사용하기**  
-스프링 5에 도입한 SpringExtension은 JUnit5 Jupiter로 만든 테스트에 스프링 테스트 콘텍스트를 통합할 수 있게 한다.
+스프링 5에 도입한 SpringExtension은 JUnit5 Jupiter로 만든 테스트에 스프링 테스트 콘텍스트를 통합할 수 있게 한다. SpringExtension은  
+JUnit Jupiter의 @ExtendWith 어노테이션과 함께 사용한다.  
+  
+JUnit4에서 JUnit5로 전환한 SpringAppTest 예제  
+cp 패키지 -> JUnit5SpringAppTest 클래스 참조  
+  
