@@ -6,6 +6,9 @@ public class Passenger {
     private String name;
     private Country country;
 
+//    패턴 적용
+    private boolean isRegistered;
+
     public Passenger(String name){
         this.name = name;
 //        의존성 제거 전
@@ -24,6 +27,16 @@ public class Passenger {
 //    두 객체 간의 직접적인 의존성이 제거되었다
     public void setCountry(Country conCountry){
         this.country = country;
+    }
+    
+//    패턴 적용
+    public boolean isRegistered() {
+        return isRegistered;
+    }
+    
+//    패턴 적용
+    public void setIsRegistered(boolean isRegistered){
+        this.isRegistered = isRegistered;
     }
 
     @Override

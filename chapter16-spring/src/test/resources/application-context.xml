@@ -11,6 +11,7 @@
         <constructor-arg name="name" value="John Smith"/>
 <!--        세터 메서드인 setCountry에 country 빈에 관한 참조를 전달-->
         <property name="country" ref="country"/>
+        <property name="isRegistered" value="false" />
     </bean>
 
     <bean id="country" class="cp.Country">
@@ -18,4 +19,5 @@
         <constructor-arg name="codeName" value="US"/>
     </bean>
 
+    <context:component-scan base-package="cp" />
 </beans>
