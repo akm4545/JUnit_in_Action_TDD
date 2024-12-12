@@ -1,9 +1,11 @@
 package sb;
 
+import beans.TestBeans;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.ImportResource;
 import sb.model.Passenger;
 import sb.registration.PassengerRegistrationEvent;
@@ -18,6 +20,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @EnableAutoConfiguration
 //XML 설정의 빈을 불러올때 사용
 @ImportResource("classpath:application-context.xml")
+
+//클래스로 등록한 빈들을 가져오기
+@Import(TestBeans.class)
 public class RegistrationTest {
 
     @Autowired
