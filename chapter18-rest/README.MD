@@ -36,5 +36,21 @@ RESTful API를 개발하기 위해서는 몇 가지 규칙을 준수해야 한�
 - 접근하려는 리소스의 식별자(URL)  
 - 서버가 해당 리소스에 수행할 연산. 보통 이는 HTTP 동사로 표현되며 HTTP 동사는 GET, POST, PUT, PATCH, DELETE가 자주 사용된다.  
   
-
+# **엔티티 한 개를 관리하는 RESTful API 만들기**  
+FlightBuilder 클래스  
+beans 패키지 -> FlightBuilder  
+  
+MVC 패턴의 세 가지 구성 요소 중 하나인 모델은 애플리케이션 안에서 사용하는 동적인 자료구조이며 유저 인터페이스와 독립적이다. 모델은  
+애플리케이션에서 사용하는 데이터를 관리하기 위해 사용한다.
+  
+CountryRepository 인터페이스  
+model -> CountryRepository  
+  
+CountryController 클래스  
+model -> CountryController  
+  
+프로젝트가 구동되면서 JPA 데이터를 영속시키기 위해 application 클래스 수정  
+  
+지금까지 만든 애플리케이션을 구동하면 /countries 엔드포인트에 접근할 수 있다. 엔드포인트란 네트워크 통신에서 클라이언트의 요청이 처리되는 지점을  
+말한다.  
   
