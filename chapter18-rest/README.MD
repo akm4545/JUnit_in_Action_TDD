@@ -54,3 +54,13 @@ model -> CountryController
 지금까지 만든 애플리케이션을 구동하면 /countries 엔드포인트에 접근할 수 있다. 엔드포인트란 네트워크 통신에서 클라이언트의 요청이 처리되는 지점을  
 말한다.  
   
+# **엔티티 여러 개를 관리하는 RESTful API 만들기**  
+Passenger 클래스  
+model 패키지 -> Passenger 클래스  
+  
+PassengerRepository 인터페이스  
+model 패키지 -> PassengerRepository 인터페이스  
+  
+Passenger 예외  
+exceptions 패키지 -> PassengerNotFoundException 클래스  
+  
