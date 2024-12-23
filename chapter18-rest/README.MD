@@ -68,4 +68,9 @@ PassengerController 클래스
 model 패키지 -> PassengerController 클래스  
   
 application 클래스를 수정하여 프로젝트 구동 시 항공편에 등록된 승객을 db에 저장한다.  
+  
+# **RESTful API 테스트하기**  
+RestApplicationTest클래스 참조  
+  
+
 
