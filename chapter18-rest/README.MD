@@ -64,3 +64,8 @@ model 패키지 -> PassengerRepository 인터페이스
 Passenger 예외  
 exceptions 패키지 -> PassengerNotFoundException 클래스  
   
+PassengerController 클래스  
+model 패키지 -> PassengerController 클래스  
+  
+application 클래스를 수정하여 프로젝트 구동 시 항공편에 등록된 승객을 db에 저장한다.  
+

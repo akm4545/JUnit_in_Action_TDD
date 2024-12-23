@@ -1,8 +1,7 @@
 package com.example.chapter18rest;
 
 import com.example.chapter18rest.beans.FlightBuilder;
-import com.example.chapter18rest.model.Country;
-import com.example.chapter18rest.model.CountryRepository;
+import com.example.chapter18rest.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,6 +17,9 @@ import java.util.Map;
 public class Chapter18RestApplication {
 
     @Autowired
+    private Flight flight;
+
+    @Autowired
     private Map<String, Country> countriesMap;
 
     public static void main(String[] args) {
@@ -30,10 +32,14 @@ public class Chapter18RestApplication {
 //    CommandLineRunner 인터페이스는 스프링 부트 애플리케이션이 실행되는 시점에 실행해야 하는 로직이 있을 때 사용한다
 //    run 메서드가 시작하기 바로 직전에 만들어지고 람다식 안의 로직을 수행한다
     @Bean
-    CommandLineRunner configureRepository (CountryRepository countryRepository){
+    CommandLineRunner configureRepository (CountryRepository countryRepository, PassengerRepository passengerRepository){
         return args -> {
             for (Country country : countriesMap.values()){
                 countryRepository.save(country);
+            }
+
+            for(Passenger passenger : flight.getPassengers()){
+                passengerRepository.save(passenger);
             }
         };
     }
