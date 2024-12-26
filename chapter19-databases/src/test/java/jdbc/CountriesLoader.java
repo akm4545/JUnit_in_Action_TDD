@@ -1,5 +1,7 @@
 package jdbc;
 
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -7,7 +9,7 @@ import java.sql.SQLException;
 import static jdbc.ConnectionManager.closeConnection;
 import static jdbc.ConnectionManager.openConnection;
 
-public class CountriesLoader {
+public class CountriesLoader extends JdbcDaoSupport {
 
     private static final String LOAD_COUNTRIES_SQL = "insert into country (name, code_name) values ";
     public static final String[][] COUNTRY_INIT_DATA = { { "Australia", "AU" }, { "Canada", "CA" }, { "France", "FR" },
@@ -19,16 +21,19 @@ public class CountriesLoader {
         for(String[] countryData : COUNTRY_INIT_DATA){
             String sql = LOAD_COUNTRIES_SQL + "('" + countryData[0] + "', '" + countryData[1] + "');";
 
-            try {
-                Connection connection = openConnection();
-                PreparedStatement statement = connection.prepareStatement(sql);
-                statement.executeUpdate();
-                statement.close();
-            }catch (SQLException e){
-                throw new RuntimeException(e);
-            }finally {
-                closeConnection();
-            }
+//            try {
+//                Connection connection = openConnection();
+//                PreparedStatement statement = connection.prepareStatement(sql);
+//                statement.executeUpdate();
+//                statement.close();
+//            }catch (SQLException e){
+//                throw new RuntimeException(e);
+//            }finally {
+//                closeConnection();
+//            }
+
+//            SpringJdbc
+            getJdbcTemplate().execute(sql);
         }
     }
 }
