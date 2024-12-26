@@ -111,3 +111,14 @@ test/resources/META-INF 폴더 참조
 하이버네이트 테스트  
 hibernate 패키지 -> CountriesHibernateTest 클래스 참조  
   
+# **스프링 하이버네이트 애플리케이션 테스트하기**  
+스프링의 제어의 역전 패턴을 추가로 적용하여 데이터베이스와의 상호작용을 단순화할 수 있다.  
+  
+persistence.xml 수정. 데이터베이스 접근 제어가 스프링에 의해 처리되므로 이 파일에는 최소한의 정보만 남게 된다.  
+application-context.xml파일에 관련 설정 추가  
+  
+데이터베이스와 상호작용 하는 클래스  
+hibernate 패키지 -> CountryService 클래스 참조  
+  
+CountriesHibernateTest 클래스 수정  
+  

@@ -4,6 +4,10 @@ import hibernate.model.Country;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -15,12 +19,17 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@ExtendWith(SpringExtension.class)
+@ContextConfiguration("classpath:application-context.xml")
 public class CountriesHibernateTest {
 
+    @Autowired
+    private CountryService countryService;
+
 //    엔티티 매니저를 생성하기 위한 팩토리
-    private EntityManagerFactory emf;
+//    private EntityManagerFactory emf;
 //    엔티티를 통해 DB에 접근할 수 있도록 하는 엔티티 매니저
-    private EntityManager em;
+//    private EntityManager em;
 
     private List<Country> expectedCountryList = new ArrayList<>();
     private List<Country> expectedCountryListStartsWithA = new ArrayList<>();
@@ -32,26 +41,29 @@ public class CountriesHibernateTest {
 
     @BeforeEach
     public void setUp() {
+        countryService.init();
         initExpectedCountryLists();
-
-        emf = Persistence.createEntityManagerFactory("manning.hibernate");
-        em = emf.createEntityManager();
+//
+//        emf = Persistence.createEntityManagerFactory("manning.hibernate");
+//        em = emf.createEntityManager();
 
 //        트랜잭션 내에서 국가 객체를 데이터베이스에 영속
-        em.getTransaction().begin();
+//        em.getTransaction().begin();
 
-        for(int i=0; i<COUNTRY_INIT_DATA.length; i++){
-            String[] countryInitData = COUNTRY_INIT_DATA[i];
-            Country country = new Country(countryInitData[0], countryInitData[1]);
-            em.persist(country);
-        }
-
-        em.getTransaction().commit();
+//        for(int i=0; i<COUNTRY_INIT_DATA.length; i++){
+//            String[] countryInitData = COUNTRY_INIT_DATA[i];
+//            Country country = new Country(countryInitData[0], countryInitData[1]);
+//            em.persist(country);
+//        }
+//
+//        em.getTransaction().commit();
     }
 
     @Test
     public void testCountryList() {
-        List<Country> countryList = em.createQuery("select c from Country c").getResultList();
+//        List<Country> countryList = em.createQuery("select c from Country c").getResultList();
+
+        List<Country> countryList = countryService.getAllCountries();
 
         assertNotNull(countryList);
         assertEquals(COUNTRY_INIT_DATA.length, countryList.size());
@@ -63,7 +75,9 @@ public class CountriesHibernateTest {
 
     @Test
     public void testCountryListStartsWithA() {
-        List<Country> countryList = em.createQuery("select c from Country c where c.name like 'A%'").getResultList();
+//        List<Country> countryList = em.createQuery("select c from Country c where c.name like 'A%'").getResultList();
+
+        List<Country> countryList = countryService.getCountriesStartingWithA();
 
         assertNotNull(countryList);
         assertEquals(expectedCountryListStartsWithA.size(), countryList.size());
@@ -75,8 +89,10 @@ public class CountriesHibernateTest {
 
     @AfterEach
     public void dropDown() {
-        em.close();
-        emf.close();
+//        em.close();
+//        emf.close();
+
+        countryService.clear();
     }
 
     private void initExpectedCountryLists() {
