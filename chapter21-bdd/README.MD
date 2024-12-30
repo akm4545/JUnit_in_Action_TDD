@@ -144,3 +144,14 @@ Then 이코노미 항공편에 추가가 가능하고 삭제도 가능하다
   
 pom.xml에 Cucumber 의존성 추가  
   
+# **TDD로 만든 기능 Cucumber로 옮기기**  
+src/test/resources/features 폴더 생성  
+그 안에 passengers_policy.feature 파일 생성  
+  
+개발자는 애플리케이션이 수행해야 하는 작업에 관한 간단한 설명과 함께 승객 정책이라는 기능을 추가한다. 그 다음 Gherkin 구문을 따라  
+시나리오를 작성한다.  
+
+passengers_policy.feature 파일 참조  
+  
+
+
