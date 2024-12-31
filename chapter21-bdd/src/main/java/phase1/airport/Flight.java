@@ -1,4 +1,4 @@
-package phase1;
+package phase1.airport;
 
 import java.util.Collections;
 import java.util.HashSet;

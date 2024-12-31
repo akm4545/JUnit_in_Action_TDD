@@ -153,5 +153,51 @@ src/test/resources/features 폴더 생성
 
 passengers_policy.feature 파일 참조  
   
+기능 파일에서 Feature, Scenario, Given, When, Then, And 키워드가 굵게 표시되어 있다. 기능 파일을 마우스 오른쪽으로 클릭하면 직접  
+실행할 수 있도록 옵션이 나타난다.  
+  
+기능 파일을 실행하기 위해서는 사전에 두 가지 준비가 필요하다.  
+첫째, 적절한 플러그인을 설치해야 한다. 만약 IntelliJ IDEA를 쓰고 있다면 File -> Setting -> Plugins로 들어가서 Cucumber for Java  
+플러그인과 Gherkin 플러그인을 설치한다.  
+  
+둘째, 기능 파일이 실행되는 환경을 구성해야 한다. Run -> Edit Configuration -> Cucumber Java 으로 이동하여 다음 옵션을 입력한다.    
+- Main class: cucumber.api.cli.Main  
+- Glue(현재 스탭 정의가 저장되는 패키지 경로): 프로젝트 경로.airport  
+- Feature or folder path: 새로 추가한 src/test/resources/features 폴더  
+- Working directory: 프로젝트 폴더  
+  
+기능 파일을 실행하면 Cucumber 테스트 스켈레톤이 만들어진다. (하단 콘솔에 RUN 메뉴)  
+  
+개발자는 src/test/java 폴더에 새로운 자바 클래스를 생성하기 위해 airport 패키지를 만든다. 새로 생성할 클래스의 이름은 PassengerPolicy  
+이며 처음에는 테스트 스켈레톤을 포함한다. 테스트는 passengers_policy.feature 파일에 기술한 시나리오를 따라 실행된다. 예를 들어 다음과  
+같은 스텝을 실행한다고 하자.  
+  
+Given 이코노미 항공편에서  
+  
+그려면 프로그램은 @Given 어노테이션이 달린 메서드를 실행할 것이다.  
+  
+@Given("^이코노미 항공편에서$")  
+  
+airport 패키지 -> PassengerPolicy 클래스 참조  
+  
+개발자는 사전에 정의된 스텝의 비즈니스 로직을 테스트로 변환한다.  
+  
+airport 패키지 -> PassengerPolicy 클래스 참조  
+  
+Cucumber 테스트를 실행하기 위해서는 특별한 클래스가 필요하다. 클래스 이름은 무엇이든지 상관없다.  
+  
+airport 패지키 -> CucumberTest 클래스 참조  
+  
+테스트를 실행해보면 Cucumber로 옮기기 전에 있었던 테스트가 Cucumber로 옮기고 나서도 문제없이 유지되고 있음을 확인할 수 있다.  
+  
+그 외에도 테스트를 Cucumber로 옮기면 또 다른 이점이 있다. Cucumber를 사용하면 Cucumber를 사용하지 않은 테스트 클래스보다 코드 줄 수가  
+줄어들지만 테스트 커버리지는 둘 다 동일하게 100%이다.  
+  
+AirportTest 파일에는 세 가지 계층의 일곱 가지 클래스가 포함되어 있다. 제일 위에 AirportTest 클래스가 있고 그 아래에는  
+EconomyFlightTest, BusinessFlightTest 클래스가 있다. 각 항공편 테스트 클래스마다 RegularPassenger 클래스와 VipPassenger 클래스가  
+있었다. 코드의 중복이 존재하는 것이다. 사실 JUnit5만 사용 가능할 떄는 테스트의 계층을 나누는 것만이 대안이었다. 반면 Cucumber를 사용하면  
+각 스텝은 정확히 한 번씩만 구현하면 된다. 즉 여러 시나리오에서 동일한 스텝을 재사용하여 코드 중복을 줄일 수 있다.  
+  
+
 
 

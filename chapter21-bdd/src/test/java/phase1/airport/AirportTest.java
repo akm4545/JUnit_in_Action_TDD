@@ -1,6 +1,7 @@
-package phase1;
+package phase1.airport;
 
 import org.junit.jupiter.api.*;
+import phase1.airport.*;
 
 import java.util.ArrayList;
 
