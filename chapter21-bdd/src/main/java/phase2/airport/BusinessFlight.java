@@ -1,6 +1,7 @@
-package phase1.airport;
+package phase2.airport;
 
-public class BusinessFlight extends Flight{
+
+public class BusinessFlight extends Flight {
     public BusinessFlight(String id) {
         super(id);
     }
