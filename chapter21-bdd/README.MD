@@ -235,6 +235,9 @@ phase3 패키지 -> mileage 패키지 -> Mileage 클래스 참조
   
 CucumberTest를 이용한 보너스 포인트 테스트를 수행하면 초록색 완료 포시를 확인할 수 있다.  
   
+# **JBehave와 JUnit5를 사용하여 BDD실천하기**  
+BDD 프레임워크는 여러 가지가 있다. 이번에는 JBehave를 사용한다.  
+  
 
   
 
