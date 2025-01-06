@@ -1,12 +1,12 @@
-package phase2.airport;
+package phase3.airport;
 
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import phase2.mileage.Mileage;
+import phase3.mileage.Mileage;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class BonusPolicy {
     private Passenger mike;

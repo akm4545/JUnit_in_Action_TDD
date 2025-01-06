@@ -219,16 +219,23 @@ Scenario Outline을 사용하면 스텝을 정의할 때 값을 굳이 하드코
 실행해서 나온 스켈레톤을 가지고 BonusPolicy 클래스를 생성한다. 이 테스트를 실행하면 bonus_policy.feature 파일에 기술된 시나리오를  
 따르게 된다.  
   
-phase2 패키지 -> airport 패키지 -> BonusPolicy 클래스 참조  
+phase3 패키지 -> airport 패키지 -> BonusPolicy 클래스 참조  
   
 개발자는 Mileage 클래스를 생성하여 필드와 메서드를 선언했지만 구현하지는 않는다. 개발자는 Mileage 클래스를 사용한 테스트가 처음에 실패하게  
 만든 다음 Mileage 클래스를 구현하고 테스트를 통과시킬 것이다.  
-  
-mileage 패키지 -> Mileage 클래스 참조  
+
+phase3 패키지 -> mileage 패키지 -> Mileage 클래스 참조  
   
 이제 개발자는 이 기능의 비즈니스 로직을 따르기 위해 BonusPolicy 클래스에서 테스트를 작성한다.  
 
-phase2 패키지 -> airport 패키지 -> BonusPolicy 클래스 참조  
+phase3 패키지 -> airport 패키지 -> BonusPolicy 클래스 참조  
+  
+테스트를 진행하면 실패한다. Mileage 클래스에서 비즈니스 로직을 구현한다.  
+phase3 패키지 -> mileage 패키지 -> Mileage 클래스 참조  
+  
+CucumberTest를 이용한 보너스 포인트 테스트를 수행하면 초록색 완료 포시를 확인할 수 있다.  
+  
+
   
 
 
