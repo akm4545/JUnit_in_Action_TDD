@@ -247,6 +247,24 @@ JBehave는 프로젝트와 관련된 모든 사람이 이해할 수 있는 일�
 - 시나리오: 애플리케이션과 상호작용하는 실제 상황을 말한다.  
 - 스텝: 전통적인 BDD 개념어인 Given, When, Then을 사용하여 정의한다.  
   
+# **TDD로 만든 기능을 JBehave로 옮기기**  
+pom.xml파일에 JBehave 의존성 추가  
+  
+IntelliJ IDEA에서 JBehave를 개발하기 위한 플러그인을 설치한다.  
+File -> Settings -> Plugins -> Browse Repositories로 이동하여 JBehave를 입력한다.  
+JBehave Step Generator와 JBehave Support 플러그인을 설치한다.  
+  
+src/test/resources/airport 폴더를 만들고 passengers_policy_story.story 파일을 만들어 스토리 파일을 생성한다.  
+PassengersPolicy 클래스도 생성한다.  
+  
+phase4 패키지 -> airport 패키지 -> PassengersPolicy 클래스  
+  
+스토리 파일은 해당 스토리에 대한 메타 정보를 나타내는 Meta, 무엇을 의도하는지 알려 주는 Narrative, 시나리오를 알려 주는 Scenario로 구성되어  
+있다.  
+
+passengers_policy_story.story 파일 참조  
+  
+
 
   
 
