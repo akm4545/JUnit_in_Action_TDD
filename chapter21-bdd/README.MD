@@ -293,6 +293,22 @@ phase5 패키지 -> airport 패키지 -> BonusPolicyStory 클래스 참조
 현재 보너스 포인트 테스트를 실행하면 아직 비즈니스 로직을 구현하지 않았기 때문에 실패한다.(Mileage 클래스) 개발자는 이후 비즈니스 로직을  
 구현한다. 그리고 테스트를 실행하면 성공할 것이다.  
   
+# **Cucumber와 JBehave 비교하기**  
+Cucumber와 JBehave는 BDD를 실천하기 위한 테스트 프레임워크다. Cucumber와 JBehave BDD원칙을 기반으로 한다.  
+  
+Cucumber는 기능 파일, JBehave는 스토리 파일을 가지고 테스트를 만든다. 기능이란 특정 프로젝트 이해관계자들의 관점으로 표현된 스토리의 모음이라고  
+이해할 수 있다. Cucumber와 JBehave 모두 동일한 BDD 키워드(Given, When, Then)를 사용했다. 그러나 Cucumber에서는 Scenario Outline  
+이라고 했고 JBehave에서는 Examples를 활용한 Scenario라고 하는 등 약간의 용어적 차이는 있다.  
+  
+IntelliJ IDEA는 Cucumber나 JBehave를 가리지 않고 자바 코드의 스텝 생성부터 코드 커버리지 확인까지 플러그인을 사용하여 모두 테스트해 볼 수  
+있다. 사실 Cucumber 플러그인이 조금 더 훌륭한 리포트를 주기는 한다. Cucumber 플러그인을 사용하면 전체 구조를 한눈에 볼 수 있고 모든 내용을  
+화면에서 컬러로 확인할 수도 있다. 기능 파일을 가지고 직접 테스트를 해 볼 수 있으므로 개발에 익숙하지 않은 사용자도 따라하기 쉽다.  
+  
+JBehave는 성숙기에 들어선 지 오래된 도구이고 Cucumber는 최근 들어 인기가 매우 높아졌다. 그리고 Cucumber 커뮤니티가 JBehave보다 좀 더  
+활동적이다. Cucumber는 블로그나 포럼의 문서가 자주 업데이트되고 있어 문제가 발생했을 때 개발자가 더 쉽게 해결할 수 있다.
+Cucumber는 JBehave와 달리 다양한 프로그래밍 언어를 지원한다. 코드 줄 수를 기준으로 했을 때 BDD 이전과 비교하여 Cucumber와 JBehave는 좋은  
+개선을 이루었다. 초기 테스트 코드 줄 수와 비교했을 때 소스 코드를 비슷한 비율로 줄여 내는 것을 볼 수 있다.  
+  
 
 
   
