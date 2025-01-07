@@ -276,6 +276,23 @@ phase4 패키지 -> airport 패키지 -> PassengersPolicyStory 클래스 참조
 BDD 이전의 AirportTest 클래스가 207줄이었다면 JBehave로 만든 PassengersPolicy 클래스가 157줄(Cucumber로 만든 것과 비슷한 수준이다)로  
 줄어든 것을 볼 수 있다. 테스트 코드는 BDD 전과 비교했을 때 75%에 불과하지만 코드 커버리지는 100%로 동일하다.  
   
+# **JBehave를 활용하여 신규 기능 추가하기**  
+이전과 같이 승객의 보너스 포인트 기능을 추가한다. bonus_policy_story.story 파일에 보너스 포인트를 제공하기 위한 시나리오를 기술하고 그 내용을  
+바탕으로 JBehave 테스트를 만든다. 맨 처음 테스트는 실패할 것이다.  
+  
+resources 디렉토리 -> airport 디렉토리 -> bonus_policy_story.story 파일 참조  
+  
+JBehave에서도 Examples를 사용하고 하드코딩할 값을 파라미터로 대체한다. 입력 값은 Scenario 끝에 있는 Examples 표에 정의되어 있다.  
+
+BonusPolicy 클래스를 생성하고 스토리 파일을 통해 모든 스탭을 생성한다.  
+phase5 패키지 -> airport 패키지 -> BonusPolicy 클래스 생성  
+
+BonusPolicy에 테스트 코드를 작성 후 테스트를 실행하기 위해 테스트 구성 클래스를 생성한다.
+phase5 패키지 -> airport 패키지 -> BonusPolicyStory 클래스 참조  
+  
+현재 보너스 포인트 테스트를 실행하면 아직 비즈니스 로직을 구현하지 않았기 때문에 실패한다.(Mileage 클래스) 개발자는 이후 비즈니스 로직을  
+구현한다. 그리고 테스트를 실행하면 성공할 것이다.  
+  
 
 
   
