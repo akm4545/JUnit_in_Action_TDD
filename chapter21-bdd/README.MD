@@ -264,6 +264,18 @@ phase4 패키지 -> airport 패키지 -> PassengersPolicy 클래스
 
 passengers_policy_story.story 파일 참조  
   
+각 스텝을 자바 파일로 생성하기 위해 아직 생성되지 않은 테스트 스텝(빨간색 밑줄이 그어진 부분)에 커서를 놓고 Alt + Enter 키를 누른다.  
+PassengersPolicy 클래스에 passengers_policy_story.story 스토리 파일의 모든 스텝을 스켈레톤으로 만들어 생성한다.  
+그리고 비즈니스 로직을 구현하면 된다.  
+  
+개발자가 JBehave로 만든 테스트를 실행하기 위해서는 별도의 테스트 구성 클래스가 필요하다.  
+  
+phase4 패키지 -> airport 패키지 -> PassengersPolicyStory 클래스 참조  
+  
+테스트를 실행하면 JBehave의 리포트는 Cucumber처럼 예쁘게 나오지는 않는다.  
+BDD 이전의 AirportTest 클래스가 207줄이었다면 JBehave로 만든 PassengersPolicy 클래스가 157줄(Cucumber로 만든 것과 비슷한 수준이다)로  
+줄어든 것을 볼 수 있다. 테스트 코드는 BDD 전과 비교했을 때 75%에 불과하지만 코드 커버리지는 100%로 동일하다.  
+  
 
 
   
