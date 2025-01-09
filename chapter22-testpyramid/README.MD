@@ -46,3 +46,41 @@ Passenger 클래스와 Flight 클래스는 서로 다른 단위를 나타내며 
 Flight 클래스에서 Passenger 클래스와 통합되도록 변경.  
 phase2 패키지 -> airport 패키지 -> Flight 클래스 참조  
   
+통합 테스트를 수행하기 위해 Arquillian을 사용한다. Arquillian은 JUnit과 잘 호환되며 자바 컨테이너 테스트를 실행할 수 있는 테스트  
+테스트 프레임워크다.  
+  
+Arquillian에는 JUnit5 extension이 없다. 하지만 Arquillian은 매우 인기 있는 도구이고 JUnit4 까지는 자주 사용되었다. Arquillian을  
+사용하면 컨테이너, 배포, 프레임워크 초기화 등을 관리하는 부담을 줄일 수 있다.  
+Arquillian은 자바 EE 애플리케이션을 테스트하는 데 사용한다.  
+  
+ShrinkWrap은 Arquillian에서 사용하는 외부 의존성이다. 개발자는 ShrinkWrap을 사용해 간단하게 아카이브를 만들 수 있다. 개발자는 ShrinkWrap  
+API를 사용하여 테스트 중에 Arquillian으로 배포할 jar, war, ear 파일을 직접 만들 수 있다. 아카이브 파일은 애플리케이션을 실행하는 데 필요한  
+모든 클래스를 포함한다.  
+  
+ShrinkWrap은 테스트 대상인 자바 컨테이너에 업로드할 디스크립터와 디플로이먼트를 정의하는 데 도움이 된다.  
+  
+승객 리스트가 담긴 csv 파일  
+resources 디렉토리 -> flights_information.csv 파일 참조  
+  
+csv 파일을 구문 분석하고 항공편에 승객 정보를 채워 넣는 클래스  
+phase2 패키지 -> airport 패키지 -> FlightBuilderUtil 클래스 참조  
+  
+Arquillian은 컨테이너와 애플리케이션 시작을 추상화한 다음 애플리케이션을 대상 런타임(이 경우에는 애플리케이션 서버)에 배포하여 테스트를 실행할  
+수 있다. Arquillian을 사용하기 위해서 pom.xml 파일에 의존성을 추가해야 한다.  
+  
+컨테이너에 대해 테스트를 실행하려면 해당 컨테이너에 맞는 의존성을 가지고 있어야 한다. 이 요구 사항은 Arquillian의 강점 중 하나를 보여 주는데  
+Arquillian은 단위 테스트로부터 컨테이너를 추상화하므로 컨테이너를 활용한 테스트를 구현하는 특정한 도구와 밀접하게 결합되지 않는다.  
+  
+두 클래스 간의 통합 테스트  
+phase2 패키지 -> airport 패키지 -> FlightWithPassengersTest 클래스 참조  
+  
+ShrinkWrap 아카이브가 서버에 배포되면 실제 아카이브가 되는 것이다. 컨테이너는 아카이브가 ShrinkWrap에 의해 패키징되었다는 사실을 알지 못하기  
+때문이다.  
+  
+테스트를 실행하면 오류가 발생하는데 @Inject를 통해 의존성을 주입하려고 했지만 그러지 못했다. Flight 클래스에 파라미터가 있는 생성자만 있을 뿐  
+컨테이너에서 사용할 기본 생성자를 선언하지 않았기 때문에 생긴 문제다. 구동할 당시에 컨테이너는 Flight 객체에 어떤 파라미터를 전달해야 할지 모르기  
+때문에 파라미터가 있는 생성자를 호출할 수 없어 이런 문제가 생겼다.  
+  
+자바 EE는 사용자 정의 초기화가 필요한 객체를 주입할 수 있도록 설계된 생산자 메서드(producer method)를 제공한다.  
+phase2 패키지 -> airport 패키지 -> producers 패키지 -> FlightProducer 클래스 참조  
+  
