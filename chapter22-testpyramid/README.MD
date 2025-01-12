@@ -150,7 +150,10 @@ phase3 패키지 -> airport 패키지 -> DistancesManager 클래스 참조
   
 남은 부분은 여전히 개발 중이겠지만 합의된 계약을 따르는 것에는 변함이 없다. 중요한 점은 여전히 API 계약이 존중된다는 것이다.  
 개발자는 거리를 기준으로 보너스를 계산하는 방법을 알고 있다. 그러므로 passengersPointsMap이 아니라 passengersDistancesMap을 사용하여  
-계산할 것이다.
+계산할 것이다.  
+  
+수정한 FlightWithPassengerTest 클래스  
+phase3 패키지 -> airport 패키지 -> FlightWithPassengersTest 클래스 참조
 
 
   

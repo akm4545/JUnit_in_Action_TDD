@@ -10,6 +10,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnit;
 import org.mockito.junit.MockitoRule;
 import phase3.airport.annotations.FlightNumber;
@@ -46,7 +47,10 @@ public class FlightWithPassengersTest {
     Flight flight;
 
 //    객체를 모의하기 위해 어노테이션 추가
-    @Mock
+    /*@Mock
+    DistancesManager distancesManager;*/
+
+    @Spy
     DistancesManager distancesManager;
 
 //    @Mock 어노테이션이 달린 모의 객체를 초기화하는 데 필요한 MockitoRule 객체에 @Rule 어노테이션 추가
@@ -54,13 +58,17 @@ public class FlightWithPassengersTest {
     @Rule
     public MockitoRule mockitoRule = MockitoJUnit.rule();
 
-    private static Map<Passenger, Integer> passengersPointsMap = new HashMap<>();
+//    private static Map<Passenger, Integer> passengersPointsMap = new HashMap<>();
+    private static Map<Passenger, Integer> passengersDistancesMap = new HashMap<>();
 
     @BeforeClass
     public static void setUp () {
-        passengersPointsMap.put(new Passenger("900-45-6809", "Susan Todd", "GB"), 210);
-        passengersPointsMap.put(new Passenger("900-45-6797", "Harry Christensen", "GB"), 420);
-        passengersPointsMap.put(new Passenger("123-45-6799", "Bethany King", "US"), 630);
+//        passengersPointsMap.put(new Passenger("900-45-6809", "Susan Todd", "GB"), 210);
+//        passengersPointsMap.put(new Passenger("900-45-6797", "Harry Christensen", "GB"), 420);
+//        passengersPointsMap.put(new Passenger("123-45-6799", "Bethany King", "US"), 630);
+        passengersDistancesMap.put(new Passenger("900-45-6809", "Susan Todd", "GB"), 2100);
+        passengersDistancesMap.put(new Passenger("900-45-6797", "Harry Christensen", "GB"), 4200);
+        passengersDistancesMap.put(new Passenger("123-45-6799", "Bethany King", "US"), 6300);
     }
 
 //    Arquillian은 @Deployment 어노테이션이 붙은 public 정적 메서드에서 테스트 아카이브를 찾는다
@@ -89,7 +97,8 @@ public class FlightWithPassengersTest {
     @Test
     public void testFlightsDistances() {
 //      getPassengersPointsMap을 실행할 떄 passengersPointsMap을 반환하도록 모의
-        when(distancesManager.getPassengersDistancesMap()).thenReturn(passengersPointsMap);
+//        when(distancesManager.getPassengersDistancesMap()).thenReturn(passengersPointsMap);
+        when(distancesManager.getPassengersDistancesMap()).thenReturn(passengersDistancesMap);
 
         distancesManager.calculateGivenPoints();
 
