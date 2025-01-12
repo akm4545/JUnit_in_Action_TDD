@@ -84,3 +84,9 @@ ShrinkWrap 아카이브가 서버에 배포되면 실제 아카이브가 되는 
 자바 EE는 사용자 정의 초기화가 필요한 객체를 주입할 수 있도록 설계된 생산자 메서드(producer method)를 제공한다.  
 phase2 패키지 -> airport 패키지 -> producers 패키지 -> FlightProducer 클래스 참조  
   
+FlightProducer 클래스를 ShrinkWrap 아카이브에 추가하면 된다.  
+phase2 패키지 -> airport 패키지 -> FlightWithPassengersTest 클래스 참조  
+  
+테스트를 실행하면 정상적으로 구동되며 코드 커버리지가 100%를 달성한다. 컨테이너는 올바르게 구성된 항공편을 주입했다. 개발자는 테스트 피라미드의  
+통합 계층을 성공적으로 구현한 것이다. 
+  

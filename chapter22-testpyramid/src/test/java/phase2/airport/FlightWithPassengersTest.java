@@ -28,7 +28,7 @@ public class FlightWithPassengersTest {
 //    결과적으로는 테스트는 매우 간단하고 관리하기 쉬워지는데 현재는 컨테이너에 Passenger와 Flight 클래스가 포함되어 있다
     public static JavaArchive createDeployment() {
         return ShrinkWrap.create(JavaArchive.class)
-                .addClasses(Passenger.class, Flight.class)
+                .addClasses(Passenger.class, Flight.class, FlightBuilderUtil.class)
                 .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
     }
 
