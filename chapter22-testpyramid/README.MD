@@ -140,7 +140,17 @@ FlightProducer 클래스에 "AA1234"를 항공편의 식별자로 사용할 파�
 phase3 패키지 -> airport 패키지 -> producers 패키지 -> FlightProducer 클래스 참조 
   
 FlightWithPassengersTest 클래스를 수정하여 주입된 항공편에 어노테이션을 달고 DistancesManager에 대한 테스트를 작성한다.  
-phase3 패키지 -> airport 패키지 -> FlightWithPassengersTest 클래스 참조
+phase3 패키지 -> airport 패키지 -> FlightWithPassengersTest 클래스 참조  
+  
+# **부분적으로 구현한 외부 의존성을 사용한 테스트**  
+개발자가 공급자로부터 DistancesManager 클래스가 일부 구현되었다고 연락을 받았고 가정하자.  
+  
+일부 구현된 DistancesManager 클래스  
+phase3 패키지 -> airport 패키지 -> DistancesManager 클래스 참조  
+  
+남은 부분은 여전히 개발 중이겠지만 합의된 계약을 따르는 것에는 변함이 없다. 중요한 점은 여전히 API 계약이 존중된다는 것이다.  
+개발자는 거리를 기준으로 보너스를 계산하는 방법을 알고 있다. 그러므로 passengersPointsMap이 아니라 passengersDistancesMap을 사용하여  
+계산할 것이다.
 
 
   
