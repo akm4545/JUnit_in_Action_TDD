@@ -155,7 +155,21 @@ phase3 패키지 -> airport 패키지 -> DistancesManager 클래스 참조
 수정한 FlightWithPassengerTest 클래스  
 phase3 패키지 -> airport 패키지 -> FlightWithPassengersTest 클래스 참조  
   
-테스트를 성공적으로 통과하지만 여전히 코드 커버리지는 100%가 아니다. DistancesManager에서 아직 개발이 미진한 부분이 있기 때문이다.
-
+테스트를 성공적으로 통과하지만 여전히 코드 커버리지는 100%가 아니다. DistancesManager에서 아직 개발이 미진한 부분이 있기 때문이다.  
+  
+# **완전히 구현한 외부 의존성을 사용한 테스트**  
+이제 소비자 측에서 외부 의존성을 온전히 사용할 수 있게 되었다. 개발자는 공급자 측에서 실제적으로 제공한 기능을 테스트한다.  
+phase4 패키지 -> airport 패키지 -> DistancesManager 클래스 참조  
+  
+개발자는 각 항공편에 대한 실제 승객 집합을 사용하고 승객 정보를 기반으로 passengerDistancesMap을 채울 것이므로 Flight 클래스에  
+getPassengers 메서드를 추가한다.  
+phase4 패키지 -> airport 패키지 -> Flight 클래스 참조  
+  
+이제 이전에 모의 객체로 동작을 메꾸었던 테스트로 돌아가서 실제 동작하는 로직을 사용하도록 변경한다. Mockito 의존성은 더는 필요가 없다. 또한  
+테스트를 실행하기 전에 passengersDistancesMap을 초기화한다.  
+phase4 패키지 -> airport 패키지 -> FlightWithPassengersTest 클래스 참조  
+  
+이제 테스트를 수행하면 코드 커버리지를 100% 달성한다.  
+  
 
   
