@@ -153,7 +153,9 @@ phase3 패키지 -> airport 패키지 -> DistancesManager 클래스 참조
 계산할 것이다.  
   
 수정한 FlightWithPassengerTest 클래스  
-phase3 패키지 -> airport 패키지 -> FlightWithPassengersTest 클래스 참조
+phase3 패키지 -> airport 패키지 -> FlightWithPassengersTest 클래스 참조  
+  
+테스트를 성공적으로 통과하지만 여전히 코드 커버리지는 100%가 아니다. DistancesManager에서 아직 개발이 미진한 부분이 있기 때문이다.
 
 
   

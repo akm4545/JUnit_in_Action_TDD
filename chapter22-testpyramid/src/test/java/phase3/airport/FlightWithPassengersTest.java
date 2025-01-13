@@ -50,6 +50,8 @@ public class FlightWithPassengersTest {
     /*@Mock
     DistancesManager distancesManager;*/
 
+//    이전에는 @Mock 어노테이션을 사용하여 distancesManager를 모의하고 있었다
+//    @Spy를 쓰면 @Mock과 달리 모의할 메서드만 모의하고 나머지 기능은 그대로 유지할 수 있다
     @Spy
     DistancesManager distancesManager;
 
